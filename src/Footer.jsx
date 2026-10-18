@@ -2,7 +2,7 @@
 
 export default function Footer() {
   return (
-    <footer className="border-t border-[#F4B3D1] bg-[#1A1A1A] text-white">
+    <footer className="border-t border-[#E2E2E2] bg-[#1A1A1A] text-white">
       <div className="mx-auto grid max-w-[1400px] gap-8 px-4 py-12 sm:px-6 lg:grid-cols-[1.2fr_0.8fr_0.8fr] lg:px-8">
         <div>
           <span className="brand-logo-window brand-logo-window--footer" aria-hidden="true">
@@ -12,14 +12,14 @@ export default function Footer() {
 
           <div className="mt-5 space-y-2 text-sm text-[#DAD4CF]">
             <p>Lima, Perú</p>
-            <a href="https://wa.me/51960985082" target="_blank" rel="noreferrer" className="inline-flex text-[#F4B3D1] transition hover:text-white">WhatsApp: +51 960 985 082</a>
+            <a href="https://wa.me/51960985082" target="_blank" rel="noreferrer" className="inline-flex text-[#FFAFD4] transition hover:text-white">WhatsApp: +51 960 985 082</a>
             <p>Horario de atención: consulta disponibilidad por WhatsApp.</p>
           </div>
           <p className="mt-5 max-w-md text-sm leading-7 text-[#DAD4CF]">Creamos regalos personalizados con cuidado artesanal para transformar fotografías, celebraciones y momentos cotidianos en recuerdos que permanecen.</p>
         </div>
 
         <div>
-          <p className="text-[10px] font-semibold uppercase tracking-[0.2em] text-[#F4B3D1]">Explora</p>
+          <p className="text-[10px] font-semibold uppercase tracking-[0.2em] text-[#FFAFD4]">Explora</p>
           <ul className="mt-4 space-y-3 text-sm text-[#DAD4CF]">
             <li><a href="#catalog" className="transition hover:text-white">Photobooks</a></li>
             <li><a href="#catalog" className="transition hover:text-white">Cuadros</a></li>
@@ -29,15 +29,18 @@ export default function Footer() {
         </div>
 
         <div>
-          <p className="text-[10px] font-semibold uppercase tracking-[0.2em] text-[#F4B3D1]">Síguenos</p>
+          <p className="text-[10px] font-semibold uppercase tracking-[0.2em] text-[#FFAFD4]">Síguenos</p>
           <div className="mt-4 flex gap-3">
-            <a href="https://www.facebook.com/tlsregalosperu" target="_blank" rel="noreferrer" className="flex h-10 w-10 items-center justify-center rounded-full border border-[#F4B3D1]/40 bg-[#2A2A2A] text-sm font-semibold text-white">
+            <a href="https://www.facebook.com/tlsregalosperu/" target="_blank" rel="noreferrer" aria-label="Facebook TLS Regalos Perú" className="flex h-10 w-10 items-center justify-center rounded-full border border-white/20 bg-[#2A2A2A] text-sm font-semibold text-white">
               f
             </a>
-            <a href="https://www.instagram.com" target="_blank" rel="noreferrer" className="flex h-10 w-10 items-center justify-center rounded-full border border-[#F4B3D1]/40 bg-[#2A2A2A] text-sm font-semibold text-white">
+            <a href="https://www.instagram.com/tlsregalosperu/" target="_blank" rel="noreferrer" aria-label="Instagram TLS Regalos Perú" className="flex h-10 w-10 items-center justify-center rounded-full border border-white/20 bg-[#2A2A2A] text-sm font-semibold text-white">
               ◎
             </a>
-            <a href="https://wa.me/51960985082" target="_blank" rel="noreferrer" className="flex h-10 w-10 items-center justify-center rounded-full border border-[#F4B3D1]/40 bg-[#2A2A2A] text-sm font-semibold text-white">
+            <a href="https://www.tiktok.com/@tlsregalosperu" target="_blank" rel="noreferrer" aria-label="TikTok TLS Regalos Perú" className="flex h-10 w-10 items-center justify-center rounded-full border border-white/20 bg-[#2A2A2A] text-sm font-semibold text-white">
+              ♪
+            </a>
+            <a href="https://wa.me/51960985082" target="_blank" rel="noreferrer" aria-label="WhatsApp TLS Regalos Perú" className="flex h-10 w-10 items-center justify-center rounded-full border border-white/20 bg-[#2A2A2A] text-sm font-semibold text-white">
               W
             </a>
           </div>

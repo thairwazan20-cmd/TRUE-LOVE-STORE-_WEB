@@ -26,6 +26,18 @@ const collectionDescriptions = {
   'Álbumes de Figuritas': 'Un álbum personal para reunir personas, recuerdos y pequeños detalles en una sola historia.',
   'Packs & Special Boxes': 'Encuentra una caja personalizada para sorprender, celebrar y hacer que el momento de abrirla sea inolvidable.',
   'Scrapbooks & Agendas': 'Organiza tus ideas o crea un álbum de experiencias con papelería pensada para acompañarte.',
+  Otros: 'Descubre álbumes de figuritas y cajas de regalo para sorprender en cualquier ocasión.',
+  Scrapbook: 'Crea un álbum de recuerdos y experiencias para conservar esos momentos que quieres volver a vivir.',
+  Cuadernos: 'Cuadernos y planificadores personalizados para organizar tus ideas, metas y días especiales.',
+}
+
+const otherCategories = ['Álbumes de Figuritas', 'Packs & Special Boxes']
+
+const matchesCollection = (product, selectedCategory) => {
+  if (selectedCategory === 'Otros') return otherCategories.includes(product.category)
+  if (selectedCategory === 'Scrapbook') return product.id === 'scrapbook-100'
+  if (selectedCategory === 'Cuadernos') return ['agenda-diaria', 'planner'].includes(product.id)
+  return product.category === selectedCategory
 }
 
 export default function CatalogGrid({ products, selectedCategory, searchTerm, setSearchTerm, wishlist, onToggleWishlist, onQuickView, onAddToCart, onBack }) {
@@ -33,7 +45,7 @@ export default function CatalogGrid({ products, selectedCategory, searchTerm, se
   const visibleProducts = useMemo(() => {
     const query = searchTerm.trim().toLocaleLowerCase('es')
     const result = products.filter((product) => {
-      const categoryMatches = product.category === selectedCategory
+      const categoryMatches = matchesCollection(product, selectedCategory)
       const textMatches = !query || `${product.title} ${product.category}`.toLocaleLowerCase('es').includes(query)
       const occasionMatches = selectedOccasion === 'best-sellers'
         || occasionCategories[selectedOccasion]?.includes(product.category)
@@ -46,7 +58,7 @@ export default function CatalogGrid({ products, selectedCategory, searchTerm, se
     return result
   }, [products, searchTerm, selectedCategory, selectedOccasion])
 
-  const collectionImages = products.filter((product) => product.category === selectedCategory).slice(0, 3)
+  const collectionImages = products.filter((product) => matchesCollection(product, selectedCategory)).slice(0, 3)
 
   const clearFilters = () => {
     setSelectedOccasion('best-sellers')
@@ -74,11 +86,11 @@ export default function CatalogGrid({ products, selectedCategory, searchTerm, se
       <div className="mb-6 flex flex-col gap-4 border-b border-[#EAE2DA] pb-5 sm:flex-row sm:items-center sm:justify-between">
         <p aria-live="polite" className="text-xs text-[#666]">{visibleProducts.length} productos</p>
         <div className="flex flex-wrap items-center gap-4">
-          <label htmlFor="occasion-filter" className="flex items-center gap-3 text-[10px] font-semibold uppercase tracking-[0.12em] text-[#777]">Elegir ocasión<select id="occasion-filter" value={selectedOccasion} onChange={(event) => setSelectedOccasion(event.target.value)} className="rounded-full border border-[#F4B3D1] bg-white px-4 py-2.5 text-xs normal-case tracking-normal text-[#1A1A1A] outline-none focus:border-[#E30613]">{occasions.map((occasion) => <option key={occasion.value} value={occasion.value}>{occasion.label}</option>)}</select></label>
+          <label htmlFor="occasion-filter" className="flex items-center gap-3 text-[10px] font-semibold uppercase tracking-[0.12em] text-[#777]">Elegir ocasión<select id="occasion-filter" value={selectedOccasion} onChange={(event) => setSelectedOccasion(event.target.value)} className="rounded-full border border-[#E2E2E2] bg-white px-4 py-2.5 text-xs normal-case tracking-normal text-[#1A1A1A] outline-none focus:border-[#E30613]">{occasions.map((occasion) => <option key={occasion.value} value={occasion.value}>{occasion.label}</option>)}</select></label>
           {(searchTerm || selectedOccasion !== 'best-sellers') && <button type="button" onClick={clearFilters} className="text-[10px] font-semibold uppercase tracking-[0.12em] text-[#E30613]">Limpiar filtros</button>}
         </div>
       </div>
-      {visibleProducts.length ? <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">{visibleProducts.map((product) => <ProductCard key={product.id} product={product} isWishlisted={wishlist.some((item) => item.id === product.id)} onToggleWishlist={onToggleWishlist} onQuickView={onQuickView} onAddToCart={onAddToCart} />)}</div> : <div className="rounded-xl border border-[#F4B3D1] bg-white p-12 text-center"><h3 className="font-display text-3xl">No encontramos ese regalo</h3><p className="mt-2 text-sm text-[#666]">Ajusta los filtros para ver más opciones.</p><button type="button" onClick={clearFilters} className="mt-5 rounded-full bg-[#F4B3D1] px-5 py-3 text-xs font-semibold text-[#1A1A1A] transition hover:bg-[#ED91BB]">Limpiar filtros</button></div>}
+      {visibleProducts.length ? <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">{visibleProducts.map((product) => <ProductCard key={product.id} product={product} isWishlisted={wishlist.some((item) => item.id === product.id)} onToggleWishlist={onToggleWishlist} onQuickView={onQuickView} onAddToCart={onAddToCart} />)}</div> : <div className="rounded-xl border border-[#E2E2E2] bg-white p-12 text-center"><h3 className="font-display text-3xl">No encontramos ese regalo</h3><p className="mt-2 text-sm text-[#666]">Ajusta los filtros para ver más opciones.</p><button type="button" onClick={clearFilters} className="mt-5 rounded-full bg-[#FFAFD4] px-5 py-3 text-xs font-semibold text-white transition hover:bg-[#E30613]">Limpiar filtros</button></div>}
     </section>
   )
 }

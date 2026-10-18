@@ -8,11 +8,13 @@ import Header from './Header'
 import HeroLanding from './HeroLanding'
 import PromotionsSection from './PromotionsSection'
 import SubscriptionModal from './SubscriptionModal'
-import { categories, products, testimonials } from './data/products'
+import { categories, products } from './data/products'
 
 const formatPrice = (value) => `S/ ${Number(value).toFixed(2)}`
 const categorySlug = (category) => category.toLocaleLowerCase('es').normalize('NFD').replace(/[\u0300-\u036f]/g, '').replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '')
-const categoryFromLocation = () => categories.find((category) => window.location.hash === `#categoria/${categorySlug(category)}`) ?? null
+const categoryFromLocation = () => categories.find((category) => window.location.hash === `#categoria/${categorySlug(category)}`)
+  ?? ['Otros', 'Scrapbook', 'Cuadernos'].find((category) => window.location.hash === `#categoria/${categorySlug(category)}`)
+  ?? null
 
 function App() {
   const [activeCategory, setActiveCategory] = useState(categoryFromLocation)
@@ -150,33 +152,24 @@ function App() {
           <PromotionsSection products={products} onAddToCart={addToCart} />
           <CategoryShowcase products={products} categories={categories} onSelectCategory={selectCategory} />
           <main className="pb-24">
-            <section className="mt-20 border-y border-[#F4B3D1]/70 bg-[#FFF9FC] py-16">
-          <div className="mb-8 text-center">
-            <p className="text-[10px] font-semibold uppercase tracking-[0.24em] text-[#E30613]">Historias felices</p>
-            <h2 className="mt-2 font-display text-5xl text-[#1A1A1A]">Lo dicen nuestros clientes</h2>
-          </div>
-          <div className="grid gap-4 md:grid-cols-3">
-            {testimonials.map((review) => (
-              <a key={review.name} href="https://www.facebook.com/tlsregalosperu/reviews" target="_blank" rel="noreferrer" className="rounded-2xl border border-white bg-white/65 p-6 shadow-[0_12px_35px_rgba(26,26,26,0.05)] backdrop-blur-lg transition hover:-translate-y-1">
-                <p className="text-sm tracking-[0.18em] text-[#E30613]" aria-label="5 de 5 estrellas">★★★★★</p>
-                <blockquote className="mt-4 text-sm leading-7 text-[#453B40]">“{review.quote}”</blockquote>
-                <p className="mt-6 text-xs font-semibold uppercase tracking-[0.14em] text-[#1A1A1A]">{review.name}</p>
-                <p className="mt-1 text-[10px] uppercase tracking-[0.14em] text-[#B84869]">{review.occasion}</p>
-              </a>
-            ))}
-          </div>
-          <a href="https://www.facebook.com/tlsregalosperu/reviews" target="_blank" rel="noreferrer" className="mx-auto mt-7 block w-fit text-[10px] font-semibold uppercase tracking-[0.18em] text-[#E30613]">Ver reseñas en Facebook ↗</a>
-          </section>
+            <section className="mt-20 border-y border-[#E5E5E5] bg-[#F3F3F3] py-16">
+              <div className="mx-auto max-w-3xl px-5 text-center">
+                <p className="text-[10px] font-semibold uppercase tracking-[0.24em] text-[#E30613]">Opiniones de clientes</p>
+                <h2 className="mt-2 font-display text-4xl text-[#1A1A1A] sm:text-5xl">Experiencias compartidas</h2>
+                <p className="mx-auto mt-4 max-w-xl text-sm leading-7 text-[#5C4A52]">Consulta los comentarios publicados por clientes en nuestro perfil oficial de Facebook.</p>
+                <a href="https://www.facebook.com/tlsregalosperu/reviews" target="_blank" rel="noreferrer" className="mt-7 inline-flex rounded-full bg-[#FFAFD4] px-6 py-3 text-xs font-semibold uppercase tracking-[0.14em] text-white transition hover:bg-[#E30613]">Leer opiniones en Facebook</a>
+              </div>
+            </section>
           </main>
         </>
       )}
 
       <Footer />
 
-      <nav aria-label="Navegación móvil" className="fixed inset-x-0 bottom-0 z-40 grid grid-cols-4 border-t border-[#F4B3D1]/70 bg-white/95 px-2 pb-[max(env(safe-area-inset-bottom),8px)] pt-2 shadow-[0_-8px_30px_rgba(26,26,26,0.08)] backdrop-blur-xl md:hidden">
+      <nav aria-label="Navegación móvil" className="fixed inset-x-0 bottom-0 z-40 grid grid-cols-4 border-t border-[#E2E2E2] bg-white/95 px-2 pb-[max(env(safe-area-inset-bottom),8px)] pt-2 shadow-[0_-8px_30px_rgba(26,26,26,0.08)] backdrop-blur-xl md:hidden">
         <a href="#inicio" onClick={(event) => { event.preventDefault(); showHome() }} className="flex flex-col items-center gap-1 py-1 text-[9px] font-medium uppercase tracking-[0.1em] text-[#5B5550]"><span className="text-lg text-[#E30613]">⌂</span>Inicio</a>
         <button type="button" onClick={focusSearch} className="flex flex-col items-center gap-1 py-1 text-[9px] font-medium uppercase tracking-[0.1em] text-[#5B5550]"><span className="text-lg text-[#E30613]">⌕</span>Buscar</button>
-        <button type="button" onClick={() => setIsCartOpen(true)} className="relative flex flex-col items-center gap-1 py-1 text-[9px] font-medium uppercase tracking-[0.1em] text-[#5B5550]"><span className="text-lg text-[#E30613]">♧</span>Carrito{cartCount > 0 && <span className="absolute left-1/2 top-0 ml-2 flex h-4 min-w-4 -translate-x-1/2 items-center justify-center rounded-full bg-[#F4B3D1] px-1 text-[9px] font-semibold text-[#1A1A1A]">{cartCount}</span>}</button>
+        <button type="button" onClick={() => setIsCartOpen(true)} className="relative flex flex-col items-center gap-1 py-1 text-[9px] font-medium uppercase tracking-[0.1em] text-[#5B5550]"><svg aria-hidden="true" viewBox="0 0 24 24" className="h-5 w-5 fill-none stroke-[#E30613]" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><circle cx="9" cy="20" r="1"/><circle cx="19" cy="20" r="1"/><path d="M2 3h2l2.7 12.4a2 2 0 0 0 2 1.6h9.7a2 2 0 0 0 2-1.6L22 8H5"/></svg>Carrito{cartCount > 0 && <span className="absolute left-1/2 top-0 ml-2 flex h-4 min-w-4 -translate-x-1/2 items-center justify-center rounded-full bg-[#FFAFD4] px-1 text-[9px] font-semibold text-[#1A1A1A]">{cartCount}</span>}</button>
         <a href="https://wa.me/51960985082" target="_blank" rel="noreferrer" className="flex flex-col items-center gap-1 py-1 text-[9px] font-medium uppercase tracking-[0.1em] text-[#5B5550]"><span className="text-lg text-[#E30613]">◉</span>WhatsApp</a>
       </nav>
 
@@ -198,7 +191,7 @@ function App() {
                 </select>
               </label>
               <p className="mt-5 text-2xl font-semibold text-[#E30613]">{formatPrice(quickVariant?.price ?? quickProduct.price)}</p>
-              <button type="button" onClick={() => addToCart(quickProduct, quickVariant)} className="mt-5 rounded-full bg-[#F4B3D1] px-5 py-4 text-xs font-semibold uppercase tracking-[0.14em] text-[#1A1A1A] transition hover:bg-[#ED91BB]">Añadir al carrito</button>
+              <button type="button" onClick={() => addToCart(quickProduct, quickVariant)} className="mt-5 rounded-full bg-[#FFAFD4] px-5 py-4 text-xs font-semibold uppercase tracking-[0.14em] text-white transition hover:bg-[#E30613]">Añadir al carrito</button>
             </div>
           </section>
         </div>
@@ -220,7 +213,7 @@ function App() {
             <p className="text-[10px] font-semibold uppercase tracking-[0.2em] text-[#E30613]">Atención TLS</p>
             <h2 className="mt-2 font-display text-4xl">Estamos para ayudarte</h2>
             <p className="mt-3 text-sm leading-6 text-[#666]">Escríbenos para consultar pedidos, personalización o envíos a todo el Perú.</p>
-            <a href="https://wa.me/51960985082?text=Hola,%20necesito%20ayuda%20con%20un%20pedido%20de%20TLS%20Regalos%20Perú" target="_blank" rel="noreferrer" className="mt-6 inline-flex rounded-full bg-[#F4B3D1] px-6 py-3 text-xs font-semibold uppercase tracking-[0.14em] text-[#1A1A1A] transition hover:bg-[#ED91BB]">Contactar por WhatsApp</a>
+            <a href="https://wa.me/51960985082?text=Hola,%20necesito%20ayuda%20con%20un%20pedido%20de%20TLS%20Regalos%20Perú" target="_blank" rel="noreferrer" className="mt-6 inline-flex rounded-full bg-[#FFAFD4] px-6 py-3 text-xs font-semibold uppercase tracking-[0.14em] text-white transition hover:bg-[#E30613]">Contactar por WhatsApp</a>
           </section>
         </div>
       )}

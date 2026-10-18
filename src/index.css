@@ -2,8 +2,8 @@
 @import 'tailwindcss';
 
 :root {
-  --tls-primary: #f4b3d1;
-  --tls-primary-hover: #ed91bb;
+  --tls-primary: #ffafd4;
+  --tls-primary-hover: #f49bc4;
   --tls-pink-soft: #fff0f6;
   --tls-accent-red: #e30613;
   --tls-charcoal: #1a1a1a;

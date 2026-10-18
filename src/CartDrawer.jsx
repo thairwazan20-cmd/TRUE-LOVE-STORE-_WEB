@@ -39,22 +39,22 @@ export default function CartDrawer({ items, isOpen, onClose, onChangeQuantity, o
         role="dialog"
         aria-modal="true"
         aria-label="Tu carrito de compras"
-        className={`absolute right-0 top-0 flex h-full w-full max-w-[480px] flex-col border-l border-[#F4B3D1] bg-white shadow-[-20px_0_70px_rgba(26,26,26,0.2)] transition-transform duration-300 ease-out ${isOpen ? 'translate-x-0' : 'translate-x-full'}`}
+        className={`absolute right-0 top-0 flex h-full w-full max-w-[480px] flex-col border-l border-[#E2E2E2] bg-white shadow-[-20px_0_70px_rgba(26,26,26,0.2)] transition-transform duration-300 ease-out ${isOpen ? 'translate-x-0' : 'translate-x-full'}`}
       >
-        <header className="flex items-center justify-between border-b border-[#F4B3D1]/60 px-6 py-5">
+        <header className="flex items-center justify-between border-b border-[#E5E5E5] px-6 py-5">
           <div>
             <p className="text-[10px] font-semibold uppercase tracking-[0.22em] text-[#E30613]">TLS REGALOS PERÚ</p>
             <h2 className="mt-1 text-xl font-semibold text-[#1A1A1A]">Tu carrito <span className="text-sm font-normal text-[#777]">({itemCount})</span></h2>
           </div>
-          <button type="button" onClick={onClose} aria-label="Cerrar carrito" className="flex h-10 w-10 items-center justify-center rounded-full border border-[#F4B3D1]/60 text-2xl text-[#1A1A1A] transition hover:bg-[#FFF0F6]">×</button>
+          <button type="button" onClick={onClose} aria-label="Cerrar carrito" className="flex h-10 w-10 items-center justify-center rounded-full border border-[#E2E2E2] text-2xl text-[#1A1A1A] transition hover:bg-[#F3F3F3]">×</button>
         </header>
 
         {items.length === 0 ? (
           <div className="flex flex-1 flex-col items-center justify-center px-8 text-center">
-            <span className="text-5xl text-[#F4B3D1]">♡</span>
+            <span className="text-5xl text-[#FFAFD4]">♡</span>
             <h3 className="mt-4 text-xl font-semibold text-[#1A1A1A]">Tu carrito está vacío</h3>
             <p className="mt-2 text-sm leading-6 text-[#666]">Descubre regalos personalizados para tus momentos especiales.</p>
-            <button type="button" onClick={onClose} className="mt-6 rounded-full bg-[#F4B3D1] px-5 py-3 text-xs font-semibold uppercase tracking-[0.15em] text-[#1A1A1A] transition hover:bg-[#ED91BB]">Explorar catálogo</button>
+            <button type="button" onClick={onClose} className="mt-6 rounded-full bg-[#FFAFD4] px-5 py-3 text-xs font-semibold uppercase tracking-[0.15em] text-white transition hover:bg-[#E30613]">Explorar catálogo</button>
           </div>
         ) : (
           <>
@@ -93,7 +93,7 @@ export default function CartDrawer({ items, isOpen, onClose, onChangeQuantity, o
                 href={checkoutUrl}
                 target="_blank"
                 rel="noreferrer"
-                className="mt-5 flex w-full items-center justify-center rounded-full bg-[#F4B3D1] px-5 py-4 text-xs font-semibold uppercase tracking-[0.16em] text-[#1A1A1A] shadow-[0_12px_30px_rgba(227,6,19,0.1)] transition hover:bg-[#ED91BB]"
+                className="mt-5 flex w-full items-center justify-center rounded-full bg-[#FFAFD4] px-5 py-4 text-xs font-semibold uppercase tracking-[0.16em] text-white shadow-[0_12px_30px_rgba(227,6,19,0.1)] transition hover:bg-[#E30613]"
               >
                 Comprar por WhatsApp
               </a>

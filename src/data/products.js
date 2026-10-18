@@ -33,8 +33,3 @@ export const products = [
   { id: 'planner', title: 'Planificador', category: categories[4], price: 48, badge: 'Nuevo', variant: 'Planificador', variants: [{ label: 'Planificador', price: 48 }, { label: 'Planificador premium', price: 80 }], image: image('photo-1434030216411-0b793f4b4173') },
 ]
 
-export const testimonials = [
-  { name: 'Mónica O.', occasion: 'Boda', quote: 'El photobook quedó precioso. La atención y cada acabado se sienten hechos con mucho cuidado.' },
-  { name: 'Katherine A.', occasion: 'Regalo especial', quote: 'Una experiencia excelente: presentación impecable y un detalle que emocionó a toda la familia.' },
-  { name: 'Rubi R.', occasion: 'Aniversario', quote: 'El cuadro con realidad aumentada fue un regalo inolvidable. La calidad superó mis expectativas.' },
-]

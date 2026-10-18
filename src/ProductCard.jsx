@@ -45,8 +45,8 @@ export default function ProductCard({ product, onQuickView, onAddToCart, isWishl
           {product.variants?.length > 1 && <span className="text-[9px] uppercase tracking-[0.1em] text-[#777]">Variantes</span>}
         </div>
         <div className="flex items-center gap-2 border-t border-[#EAE2DA] pt-3">
-          <button type="button" onClick={() => onQuickView(product)} className="flex-1 rounded-full border border-[#F4B3D1] px-3 py-2.5 text-[9px] font-semibold uppercase tracking-[0.1em] text-[#E30613]">Detalles</button>
-          <button type="button" onClick={() => onAddToCart(product)} className="flex-1 rounded-full bg-[#F4B3D1] px-3 py-2.5 text-[10px] font-semibold uppercase tracking-[0.12em] text-[#1A1A1A] transition hover:bg-[#ED91BB]">Comprar</button>
+          <button type="button" onClick={() => onQuickView(product)} className="flex-1 rounded-full border border-[#E2E2E2] px-3 py-2.5 text-[9px] font-semibold uppercase tracking-[0.1em] text-[#E30613] transition hover:border-[#E30613]">Detalles</button>
+          <button type="button" onClick={() => onAddToCart(product)} className="flex-1 rounded-full bg-[#FFAFD4] px-3 py-2.5 text-[10px] font-semibold uppercase tracking-[0.12em] text-white transition hover:bg-[#E30613]">Comprar</button>
         </div>
       </div>
     </article>

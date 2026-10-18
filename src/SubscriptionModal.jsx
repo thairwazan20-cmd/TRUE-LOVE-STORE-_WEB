@@ -16,7 +16,7 @@ export default function SubscriptionModal({ isOpen, onClose }) {
 
   return (
     <div className="fixed inset-0 z-[80] flex items-center justify-center bg-[#1A1A1A]/60 p-4 backdrop-blur-sm" onClick={onClose}>
-      <div role="dialog" aria-modal="true" aria-labelledby="subscription-title" className="relative w-full max-w-3xl overflow-hidden rounded-2xl border border-[#F4B3D1] bg-[#FFFDF9] shadow-[0_30px_80px_rgba(26,26,26,0.25)]" onClick={(event) => event.stopPropagation()}>
+      <div role="dialog" aria-modal="true" aria-labelledby="subscription-title" className="relative w-full max-w-3xl overflow-hidden rounded-2xl border border-[#E5E5E5] bg-[#FFFDF9] shadow-[0_30px_80px_rgba(26,26,26,0.25)]" onClick={(event) => event.stopPropagation()}>
         <button
           type="button"
           onClick={onClose}
@@ -27,7 +27,7 @@ export default function SubscriptionModal({ isOpen, onClose }) {
         </button>
 
         <div className="grid md:grid-cols-[0.9fr_1.1fr]">
-          <div aria-hidden="true" className="relative min-h-[180px] overflow-hidden bg-gradient-to-br from-[#F4B3D1] via-[#F8C9DE] to-[#FFF0F6] md:min-h-[410px]">
+          <div aria-hidden="true" className="relative min-h-[180px] overflow-hidden bg-gradient-to-br from-[#FFAFD4] via-[#F8C9DE] to-[#FFF0F6] md:min-h-[410px]">
             <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,_rgba(255,255,255,0.18),transparent_50%)]" />
             <div className="absolute inset-x-0 bottom-0 h-1/3 bg-gradient-to-t from-black/10 to-transparent" />
           </div>
@@ -48,7 +48,7 @@ export default function SubscriptionModal({ isOpen, onClose }) {
               href="https://wa.me/51960985082?text=Hola,%20deseo%20más%20información%20sobre%20la%20Suscripción%20Mensual%20de%20PHOTOBOOK%20PREMIUM"
               target="_blank"
               rel="noreferrer"
-              className="mt-6 inline-flex items-center justify-center rounded-full bg-[#F4B3D1] px-5 py-3 text-sm font-semibold text-[#1A1A1A] shadow-[0_12px_30px_rgba(227,6,19,0.12)] transition hover:-translate-y-0.5 hover:bg-[#ED91BB]"
+              className="mt-6 inline-flex items-center justify-center rounded-full bg-[#FFAFD4] px-5 py-3 text-sm font-semibold text-white shadow-[0_12px_30px_rgba(227,6,19,0.12)] transition hover:-translate-y-0.5 hover:bg-[#E30613]"
             >
               Conoce más por WhatsApp
             </a>
