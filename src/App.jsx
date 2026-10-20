@@ -4,6 +4,9 @@ import CartDrawer from './CartDrawer'
 import CatalogGrid from './CatalogGrid'
 import CategoryShowcase from './CategoryShowcase'
 import Footer from './Footer'
+import FeaturedProducts from './FeaturedProducts'
+import Testimonials from './Testimonials'
+import WhyChooseUs from './WhyChooseUs'
 import Header from './Header'
 import HeroLanding from './HeroLanding'
 import PromotionsSection from './PromotionsSection'
@@ -34,6 +37,7 @@ function App() {
   const [wishlistOpen, setWishlistOpen] = useState(false)
   const [accountOpen, setAccountOpen] = useState(false)
   const [headerVisible, setHeaderVisible] = useState(true)
+  const [viewMode, setViewMode] = useState('grid')
 
   useEffect(() => {
     localStorage.setItem('tls-cart', JSON.stringify(cartItems))
@@ -139,32 +143,27 @@ function App() {
         onOpenCart={() => setIsCartOpen(true)}
         onOpenWishlist={() => setWishlistOpen(true)}
         onOpenAccount={() => setAccountOpen(true)}
+        viewMode={viewMode}
+        onToggleView={() => setViewMode((mode) => mode === 'grid' ? 'list' : 'grid')}
         onGoHome={showHome}
       />
 
       {activeCategory ? (
         <main className="pb-24">
-          <CatalogGrid products={products} selectedCategory={activeCategory} searchTerm={searchTerm} setSearchTerm={setSearchTerm} wishlist={wishlist} onToggleWishlist={toggleWishlist} onQuickView={openQuickView} onAddToCart={addToCart} onBack={showHome} />
+          <CatalogGrid products={products} selectedCategory={activeCategory} searchTerm={searchTerm} setSearchTerm={setSearchTerm} wishlist={wishlist} onToggleWishlist={toggleWishlist} onQuickView={openQuickView} onAddToCart={addToCart} onBack={showHome} viewMode={viewMode} />
         </main>
       ) : (
         <>
           <HeroLanding onSelectCategory={selectCategory} />
           <PromotionsSection products={products} onAddToCart={addToCart} />
           <CategoryShowcase products={products} categories={categories} onSelectCategory={selectCategory} />
-          <main className="pb-24">
-            <section className="mt-20 border-y border-[#E5E5E5] bg-[#F3F3F3] py-16">
-              <div className="mx-auto max-w-3xl px-5 text-center">
-                <p className="text-[10px] font-semibold uppercase tracking-[0.24em] text-[#E30613]">Opiniones de clientes</p>
-                <h2 className="mt-2 font-display text-4xl text-[#1A1A1A] sm:text-5xl">Experiencias compartidas</h2>
-                <p className="mx-auto mt-4 max-w-xl text-sm leading-7 text-[#5C4A52]">Consulta los comentarios publicados por clientes en nuestro perfil oficial de Facebook.</p>
-                <a href="https://www.facebook.com/tlsregalosperu/reviews" target="_blank" rel="noreferrer" className="mt-7 inline-flex rounded-full bg-[#FFAFD4] px-6 py-3 text-xs font-semibold uppercase tracking-[0.14em] text-white transition hover:bg-[#E30613]">Leer opiniones en Facebook</a>
-              </div>
-            </section>
-          </main>
+          <FeaturedProducts products={products} onQuickView={openQuickView} />
+          <WhyChooseUs />
+          <Testimonials />
         </>
       )}
 
-      <Footer />
+      <Footer onSelectCategory={selectCategory} />
 
       <nav aria-label="Navegación móvil" className="fixed inset-x-0 bottom-0 z-40 grid grid-cols-4 border-t border-[#E2E2E2] bg-white/95 px-2 pb-[max(env(safe-area-inset-bottom),8px)] pt-2 shadow-[0_-8px_30px_rgba(26,26,26,0.08)] backdrop-blur-xl md:hidden">
         <a href="#inicio" onClick={(event) => { event.preventDefault(); showHome() }} className="flex flex-col items-center gap-1 py-1 text-[9px] font-medium uppercase tracking-[0.1em] text-[#5B5550]"><span className="text-lg text-[#E30613]">⌂</span>Inicio</a>

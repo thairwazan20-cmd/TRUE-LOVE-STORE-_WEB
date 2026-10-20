@@ -40,7 +40,7 @@ const matchesCollection = (product, selectedCategory) => {
   return product.category === selectedCategory
 }
 
-export default function CatalogGrid({ products, selectedCategory, searchTerm, setSearchTerm, wishlist, onToggleWishlist, onQuickView, onAddToCart, onBack }) {
+export default function CatalogGrid({ products, selectedCategory, searchTerm, setSearchTerm, wishlist, onToggleWishlist, onQuickView, onAddToCart, onBack, viewMode }) {
   const [selectedOccasion, setSelectedOccasion] = useState('best-sellers')
   const visibleProducts = useMemo(() => {
     const query = searchTerm.trim().toLocaleLowerCase('es')
@@ -90,7 +90,7 @@ export default function CatalogGrid({ products, selectedCategory, searchTerm, se
           {(searchTerm || selectedOccasion !== 'best-sellers') && <button type="button" onClick={clearFilters} className="text-[10px] font-semibold uppercase tracking-[0.12em] text-[#E30613]">Limpiar filtros</button>}
         </div>
       </div>
-      {visibleProducts.length ? <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">{visibleProducts.map((product) => <ProductCard key={product.id} product={product} isWishlisted={wishlist.some((item) => item.id === product.id)} onToggleWishlist={onToggleWishlist} onQuickView={onQuickView} onAddToCart={onAddToCart} />)}</div> : <div className="rounded-xl border border-[#E2E2E2] bg-white p-12 text-center"><h3 className="font-display text-3xl">No encontramos ese regalo</h3><p className="mt-2 text-sm text-[#666]">Ajusta los filtros para ver más opciones.</p><button type="button" onClick={clearFilters} className="mt-5 rounded-full bg-[#FFAFD4] px-5 py-3 text-xs font-semibold text-white transition hover:bg-[#E30613]">Limpiar filtros</button></div>}
+      {visibleProducts.length ? <div className={`catalog-products ${viewMode === 'list' ? 'catalog-products--list' : 'catalog-products--grid'}`}>{visibleProducts.map((product) => <ProductCard key={product.id} product={product} isWishlisted={wishlist.some((item) => item.id === product.id)} onToggleWishlist={onToggleWishlist} onQuickView={onQuickView} onAddToCart={onAddToCart} />)}</div> : <div className="rounded-xl border border-[#E2E2E2] bg-white p-12 text-center"><h3 className="font-display text-3xl">No encontramos ese regalo</h3><p className="mt-2 text-sm text-[#666]">Ajusta los filtros para ver más opciones.</p><button type="button" onClick={clearFilters} className="mt-5 rounded-full bg-[#FFAFD4] px-5 py-3 text-xs font-semibold text-white transition hover:bg-[#E30613]">Limpiar filtros</button></div>}
     </section>
   )
 }
