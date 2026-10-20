@@ -45,16 +45,7 @@ export default function Footer({ onSelectCategory }) {
           </div>
         </div>
 
-        <nav aria-label="Enlaces rápidos">
-          <p className="text-[10px] font-semibold uppercase text-[#FFB6C1]">Enlaces rápidos</p>
-          <ul className="mt-4 space-y-3 text-sm text-[#DAD4CF]">
-            {quickLinks.map((link) => (
-              <li key={link.label}>
-                <a href="#catalogo" onClick={(event) => { event.preventDefault(); onSelectCategory(link.category) }} className="transition hover:text-white">{link.label}</a>
-              </li>
-            ))}
-          </ul>
-        </nav>
+        
 
         <nav aria-label="Atención al cliente">
           <p className="text-[10px] font-semibold uppercase text-[#FFB6C1]">Atención al cliente</p>
