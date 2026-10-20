@@ -29,15 +29,7 @@ export default function Footer() {
           <p className="mt-5 max-w-md text-sm font-semibold uppercase leading-7 text-[#DAD4CF]">PHOTOBOOKS | FOTOBOOK, CUADROS, SCRAPBOOK, CUADERNOS, OTROS</p>
         </div>
 
-        <div>
-          <p className="text-[10px] font-semibold uppercase tracking-[0.2em] text-[#FFAFD4]">Explora</p>
-          <ul className="mt-4 space-y-3 text-sm text-[#DAD4CF]">
-            <li><a href="#catalog" className="transition hover:text-white">Photobooks</a></li>
-            <li><a href="#catalog" className="transition hover:text-white">Cuadros</a></li>
-            <li><a href="#catalog" className="transition hover:text-white">Álbumes</a></li>
-            <li><a href="#catalog" className="transition hover:text-white">Regalos personalizados</a></li>
-          </ul>
-        </div>
+      
 
         <div>
           <p className="text-[10px] font-semibold uppercase tracking-[0.2em] text-[#FFAFD4]">Síguenos</p>
