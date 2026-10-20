@@ -1,7 +1,7 @@
 const promotions = [
-  { id: 'photo-1814', title: 'PHOTOBOOK 18x14cm', description: 'Formato cuadrado - 10 páginas (20 fotos)', price: 79, gallery: ['photo-1511285560929-80b456fea0bc', 'photo-1529156069898-49953e39b3ac', 'photo-1516483638261-f4dbaf036963', 'photo-1520854221256-17451cc331bf', 'photo-1511895426328-dc8714191300'] },
+  { id: 'photo-square-1515-promo', title: 'PHOTOBOOK 15x15cm', description: 'Formato cuadrado - 15 páginas (20 fotos)', price: 79, gallery: ['photo-1511285560929-80b456fea0bc', 'photo-1529156069898-49953e39b3ac', 'photo-1516483638261-f4dbaf036963', 'photo-1520854221256-17451cc331bf', 'photo-1511895426328-dc8714191300'] },
   { id: 'photo-2222', title: 'PHOTOBOOK 22x22cm', description: 'Formato cuadrado - 10 páginas (30 fotos)', price: 99, gallery: ['photo-1520854221256-17451cc331bf', 'photo-1529156069898-49953e39b3ac', 'photo-1516483638261-f4dbaf036963', 'photo-1511285560929-80b456fea0bc', 'photo-1511895426328-dc8714191300'] },
-  { id: 'photo-2230', title: 'PHOTOBOOK 22x30cm', description: 'Formato vertical personalizado para conservar tus recuerdos.', price: 309, gallery: ['photo-1516483638261-f4dbaf036963', 'photo-1520854221256-17451cc331bf', 'photo-1511285560929-80b456fea0bc', 'photo-1529156069898-49953e39b3ac', 'photo-1511895426328-dc8714191300'] },
+  { id: 'photo-rect-2230-promo', title: 'PHOTOBOOK 22x30cm', description: 'Formato vertical - 10 páginas (60 fotos)', price: 199, gallery: ['photo-1516483638261-f4dbaf036963', 'photo-1520854221256-17451cc331bf', 'photo-1511285560929-80b456fea0bc', 'photo-1529156069898-49953e39b3ac', 'photo-1511895426328-dc8714191300'] },
 ]
 
 const imageUrl = (imageId) => `https://images.unsplash.com/${imageId}?auto=format&fit=crop&w=900&q=85`
@@ -26,7 +26,7 @@ export default function PromotionsSection({ products, onAddToCart }) {
               <h3>{promotion.title}</h3>
               <p>{promotion.description}</p>
               <div className="monthly-promotion__purchase">
-                <span className="monthly-promotion__price">S/ {promotion.price}.00</span>
+                <span className="monthly-promotion__price">S/ {promotion.price}</span>
                 <button type="button" onClick={() => addPromotion(promotion)}>COMPRAR</button>
               </div>
             </article>

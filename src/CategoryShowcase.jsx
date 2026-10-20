@@ -1,9 +1,16 @@
 const tileConfig = [
   { label: 'PHOTOBOOKS & FOTOLIBROS', categoryIndex: 0, productMatch: '18 × 14' },
   { label: 'CUADROS', categoryIndex: 1, productMatch: 'Cuadro “Netflix”' },
+  { label: 'ÁLBUM DE FIGURITAS', categoryIndex: 2, productMatch: '50 Figuritas' },
+  { label: 'PACKS & SPECIAL BOXES', categoryIndex: 3, productMatch: 'Box Auténtica' },
   { label: 'SCRAPBOOK', category: 'Scrapbook', productMatch: 'Scrapbook 100 Citas' },
   { label: 'CUADERNOS', category: 'Cuadernos', productMatch: 'Agenda Diaria' },
-  { label: 'OTROS', category: 'Otros', productMatch: 'Álbum de 50 Figuritas' },
+  { label: 'ACORDEÓN BOOK', categoryIndex: 0, productMatch: '22 × 22' },
+  { label: '100 CITAS', category: 'Scrapbook', productMatch: 'Scrapbook 100 Citas' },
+  { label: 'SPECIAL BOX', category: 'Otros', productMatch: 'Special Box' },
+  { label: 'ÁLBUM DE COLOREO', category: 'Otros', productMatch: '30 Figuritas' },
+  { label: 'BOX CHELERO', category: 'Otros', productMatch: 'Box Chelero' },
+  { label: 'BOXES PERSONALIZADOS', category: 'Otros', productMatch: 'Box Mágico' },
 ]
 
 export default function CategoryShowcase({ products, categories, onSelectCategory }) {

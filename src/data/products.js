@@ -9,6 +9,8 @@ export const categories = [
 ]
 
 export const products = [
+  { id: 'photo-square-1515-promo', title: 'Photobook Cuadrado 15 × 15 cm', category: categories[0], price: 79, badge: 'Promoción', variant: '15 × 15 cm · 15 páginas · 20 fotos', image: image('photo-1511285560929-80b456fea0bc') },
+  { id: 'photo-rect-2230-promo', title: 'Photobook Vertical 22 × 30 cm', category: categories[0], price: 199, badge: 'Promoción', variant: '22 × 30 cm · 10 páginas · 60 fotos', image: image('photo-1520854221256-17451cc331bf') },
   { id: 'photo-1814', title: 'Photobook & Fotolibro 18 × 14 cm', category: categories[0], price: 99, badge: 'Nuevo', variant: '18 × 14 cm', image: image('photo-1511285560929-80b456fea0bc') },
   { id: 'photo-1520', title: 'Photobook & Fotolibro 15 × 20 cm', category: categories[0], price: 149, badge: 'Favorito', variant: '15 × 20 cm', image: image('photo-1529156069898-49953e39b3ac') },
   { id: 'photo-2222', title: 'Photobook & Fotolibro 22 × 22 cm', category: categories[0], price: 229, badge: '', variant: '22 × 22 cm', image: image('photo-1516483638261-f4dbaf036963') },

@@ -1,4 +1,15 @@
 ﻿import whiteWordmark from './assets/CASD.png'
+import whatsappIcon from './assets/whatsapp.svg'
+import instagramIcon from './assets/instagram.svg'
+import facebookIcon from './assets/facebook.svg'
+import tiktokIcon from './assets/tiktok.svg'
+
+const socialLinks = [
+  { label: 'Instagram', href: 'https://www.instagram.com/tlsregalosperu/', icon: instagramIcon },
+  { label: 'Facebook', href: 'https://www.facebook.com/tlsregalosperu/', icon: facebookIcon },
+  { label: 'TikTok', href: 'https://www.tiktok.com/@tlsregalosperu', icon: tiktokIcon },
+  { label: 'WhatsApp', href: 'https://wa.me/51960985082', icon: whatsappIcon },
+]
 
 export default function Footer() {
   return (
@@ -8,14 +19,14 @@ export default function Footer() {
           <span className="brand-logo-window brand-logo-window--footer" aria-hidden="true">
             <img src={whiteWordmark} alt="" />
           </span>
-          <p className="mt-3 text-sm text-[#DAD4CF]">Regalos premium para momentos inolvidables</p>
+          <p className="mt-3 text-sm text-[#DAD4CF]">Cada detalle, un toque de amor</p>
 
           <div className="mt-5 space-y-2 text-sm text-[#DAD4CF]">
             <p>Lima, Perú</p>
             <a href="https://wa.me/51960985082" target="_blank" rel="noreferrer" className="inline-flex text-[#FFAFD4] transition hover:text-white">WhatsApp: +51 960 985 082</a>
             <p>Horario de atención: consulta disponibilidad por WhatsApp.</p>
           </div>
-          <p className="mt-5 max-w-md text-sm leading-7 text-[#DAD4CF]">Creamos regalos personalizados con cuidado artesanal para transformar fotografías, celebraciones y momentos cotidianos en recuerdos que permanecen.</p>
+          <p className="mt-5 max-w-md text-sm font-semibold uppercase leading-7 text-[#DAD4CF]">PHOTOBOOKS | FOTOBOOK, CUADROS, SCRAPBOOK, CUADERNOS, OTROS</p>
         </div>
 
         <div>
@@ -30,19 +41,12 @@ export default function Footer() {
 
         <div>
           <p className="text-[10px] font-semibold uppercase tracking-[0.2em] text-[#FFAFD4]">Síguenos</p>
-          <div className="mt-4 flex gap-3">
-            <a href="https://www.facebook.com/tlsregalosperu/" target="_blank" rel="noreferrer" aria-label="Facebook TLS Regalos Perú" className="flex h-10 w-10 items-center justify-center rounded-full border border-white/20 bg-[#2A2A2A] text-sm font-semibold text-white">
-              f
-            </a>
-            <a href="https://www.instagram.com/tlsregalosperu/" target="_blank" rel="noreferrer" aria-label="Instagram TLS Regalos Perú" className="flex h-10 w-10 items-center justify-center rounded-full border border-white/20 bg-[#2A2A2A] text-sm font-semibold text-white">
-              ◎
-            </a>
-            <a href="https://www.tiktok.com/@tlsregalosperu" target="_blank" rel="noreferrer" aria-label="TikTok TLS Regalos Perú" className="flex h-10 w-10 items-center justify-center rounded-full border border-white/20 bg-[#2A2A2A] text-sm font-semibold text-white">
-              ♪
-            </a>
-            <a href="https://wa.me/51960985082" target="_blank" rel="noreferrer" aria-label="WhatsApp TLS Regalos Perú" className="flex h-10 w-10 items-center justify-center rounded-full border border-white/20 bg-[#2A2A2A] text-sm font-semibold text-white">
-              W
-            </a>
+          <div className="mt-4 flex items-center gap-5">
+            {socialLinks.map((link) => (
+              <a key={link.label} href={link.href} target="_blank" rel="noreferrer" aria-label={`${link.label} TLS Regalos Perú`} className="transition hover:opacity-70">
+                <img src={link.icon} alt="" className="h-6 w-6 invert" />
+              </a>
+            ))}
           </div>
         </div>
       </div>
