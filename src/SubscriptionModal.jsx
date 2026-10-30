@@ -27,7 +27,7 @@ export default function SubscriptionModal({ isOpen, onClose }) {
         </button>
 
         <div className="grid md:grid-cols-[0.9fr_1.1fr]">
-          <div aria-hidden="true" className="relative min-h-[180px] overflow-hidden bg-gradient-to-br from-[#FFB6C1] via-[#F8C9DE] to-[#FFF0F6] md:min-h-[410px]">
+          <div aria-hidden="true" className="relative min-h-[180px] overflow-hidden bg-[#FFF0F6] md:min-h-[410px]">
             <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,_rgba(255,255,255,0.18),transparent_50%)]" />
             <div className="absolute inset-x-0 bottom-0 h-1/3 bg-gradient-to-t from-black/10 to-transparent" />
           </div>

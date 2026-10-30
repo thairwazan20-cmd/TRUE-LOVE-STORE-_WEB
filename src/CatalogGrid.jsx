@@ -22,17 +22,19 @@ const occasionCategories = {
 
 const collectionTitles = {
   'Photobooks & Fotolibros': 'Photobook | Fotolibros',
+  'Packs & Special Boxes': 'Packs | Special Boxes',
+  'Scrapbooks & Agendas': 'Scrapbooks | Agendas',
 }
 
 const collectionDescriptions = {
-  'Photobooks & Fotolibros': 'Diseñamos tus fotografías como un libro para volver a tus momentos favoritos. Elige el formato y creamos el diseño a pedido.',
-  'Cuadros con Realidad Aumentada': 'Convierte una foto especial en una pieza para tu hogar. Explora diseños personalizados y distintos tamaños.',
-  'Álbumes de Figuritas': 'Un álbum personal para reunir personas, recuerdos y pequeños detalles en una sola historia.',
-  'Packs & Special Boxes': 'Encuentra una caja personalizada para sorprender, celebrar y hacer que el momento de abrirla sea inolvidable.',
-  'Scrapbooks & Agendas': 'Organiza tus ideas o crea un álbum de experiencias con papelería pensada para acompañarte.',
-  Otros: 'Descubre álbumes de figuritas y cajas de regalo para sorprender en cualquier ocasión.',
-  Scrapbook: 'Crea un álbum de recuerdos y experiencias para conservar esos momentos que quieres volver a vivir.',
-  Cuadernos: 'Cuadernos y planificadores personalizados para organizar tus ideas, metas y días especiales.',
+  'Photobooks & Fotolibros': 'Diseñamos tus fotografías como un libro para volver a tus momentos favoritos. Elige el formato y creamos el diseño personalizado a pedido.',
+  'Cuadros con Realidad Aumentada': 'Convierte una foto especial en una pieza para tu hogar. Elige el tamaño y creamos el diseño personalizado a pedido.',
+  'Álbumes de Figuritas': 'Un álbum personal para reunir personas, recuerdos y pequeños detalles en una sola historia. Elige el formato y creamos el diseño personalizado a pedido.',
+  'Packs & Special Boxes': 'Encuentra una caja personalizada para sorprender, celebrar y hacer que el momento de abrirla sea inolvidable. Elige tu caja y creamos el diseño personalizado a pedido.',
+  'Scrapbooks & Agendas': 'Organiza tus ideas o crea un álbum de experiencias con papelería pensada para acompañarte. Elige el formato y creamos el diseño personalizado a pedido.',
+  Otros: 'Descubre álbumes de figuritas y cajas de regalo para sorprender en cualquier ocasión. Elige tu regalo y creamos el diseño personalizado a pedido.',
+  Scrapbook: 'Crea un álbum de recuerdos y experiencias para conservar esos momentos que quieres volver a vivir. Elige el formato y creamos el diseño personalizado a pedido.',
+  Cuadernos: 'Cuadernos y planificadores personalizados para organizar tus ideas, metas y días especiales. Elige el formato y creamos el diseño personalizado a pedido.',
 }
 
 const otherCategories = ['Álbumes de Figuritas', 'Packs & Special Boxes']
@@ -44,7 +46,7 @@ const matchesCollection = (product, selectedCategory) => {
   return product.category === selectedCategory
 }
 
-export default function CatalogGrid({ products, selectedCategory, searchTerm, setSearchTerm, wishlist, onToggleWishlist, onQuickView, onAddToCart, onBack, viewMode }) {
+export default function CatalogGrid({ products, selectedCategory, searchTerm, setSearchTerm, onQuickView, onAddToCart, onBack, viewMode }) {
   const [selectedOccasion, setSelectedOccasion] = useState('best-sellers')
   const visibleProducts = useMemo(() => {
     const query = searchTerm.trim().toLocaleLowerCase('es')
@@ -62,7 +64,8 @@ export default function CatalogGrid({ products, selectedCategory, searchTerm, se
     return result
   }, [products, searchTerm, selectedCategory, selectedOccasion])
 
-  const collectionImages = products.filter((product) => matchesCollection(product, selectedCategory)).slice(0, 3)
+  const collectionProducts = products.filter((product) => matchesCollection(product, selectedCategory))
+  const collectionImages = collectionProducts.length ? Array.from({ length: 3 }, (_, index) => collectionProducts[index % collectionProducts.length]) : []
 
   const clearFilters = () => {
     setSelectedOccasion('best-sellers')
@@ -73,7 +76,7 @@ export default function CatalogGrid({ products, selectedCategory, searchTerm, se
     <section className="mx-auto min-h-[70vh] max-w-[1600px] scroll-mt-8 px-5 pb-20 pt-48 sm:px-8 lg:px-12 lg:pb-24 lg:pt-36" id="catalog">
       <div className="collection-intro">
         <div className="collection-intro__collage" aria-label={`Fotografías de ${selectedCategory}`}>
-          {collectionImages.map((product, index) => <img key={product.id} className={index === 0 ? 'collection-intro__image-main' : 'collection-intro__image-small'} src={product.image} alt={index === 0 ? product.title : ''} />)}
+          {collectionImages.map((product, index) => <img key={index} className={index === 0 ? 'collection-intro__image-main' : 'collection-intro__image-small'} src={product.image} alt={index === 0 ? product.title : ''} />)}
         </div>
         <div className="collection-intro__copy">
           <button type="button" onClick={onBack} className="collection-intro__back">← Volver a categorías</button>
@@ -93,7 +96,7 @@ export default function CatalogGrid({ products, selectedCategory, searchTerm, se
           {(searchTerm || selectedOccasion !== 'best-sellers') && <button type="button" onClick={clearFilters} className="text-[10px] font-semibold uppercase tracking-[0.12em] text-[#E30613]">Limpiar filtros</button>}
         </div>
       </div>
-      {visibleProducts.length ? <div className={`catalog-products ${viewMode === 'list' ? 'catalog-products--list' : 'catalog-products--grid'}`}>{visibleProducts.map((product) => <ProductCard key={product.id} product={product} isWishlisted={wishlist.some((item) => item.id === product.id)} onToggleWishlist={onToggleWishlist} onQuickView={onQuickView} onAddToCart={onAddToCart} />)}</div> : <div className="rounded-xl border border-[#E2E2E2] bg-white p-12 text-center"><h3 className="font-display text-3xl">No encontramos ese regalo</h3><p className="mt-2 text-sm text-[#666]">Ajusta los filtros para ver más opciones.</p><button type="button" onClick={clearFilters} className="mt-5 rounded-full bg-[#FFB6C1] px-5 py-3 text-xs font-semibold text-white transition hover:bg-[#E30613]">Limpiar filtros</button></div>}
+      {visibleProducts.length ? <div className={`catalog-products ${viewMode === 'list' ? 'catalog-products--list' : 'catalog-products--grid'}`}>{visibleProducts.map((product) => <ProductCard key={product.id} product={product} onQuickView={onQuickView} onAddToCart={onAddToCart} />)}</div> : <div className="rounded-xl border border-[#E2E2E2] bg-white p-12 text-center"><h3 className="font-display text-3xl">No encontramos ese regalo</h3><p className="mt-2 text-sm text-[#666]">Ajusta los filtros para ver más opciones.</p><button type="button" onClick={clearFilters} className="mt-5 rounded-full bg-[#FFB6C1] px-5 py-3 text-xs font-semibold text-white transition hover:bg-[#E30613]">Limpiar filtros</button></div>}
     </section>
   )
 }

@@ -9,9 +9,7 @@ export default function Header({
   searchTerm,
   setSearchTerm,
   cartCount,
-  wishlistCount,
   onOpenCart,
-  onOpenWishlist,
   onOpenAccount,
   onToggleView,
   viewMode,
@@ -100,10 +98,6 @@ export default function Header({
           </div>
 
           <div className="flex items-center justify-end gap-1.5 sm:gap-2 lg:col-start-3 lg:row-start-1 lg:gap-3">
-            <button type="button" aria-label={`Favoritos, ${wishlistCount} productos`} onClick={onOpenWishlist} className="relative flex h-10 w-10 items-center justify-center rounded-full bg-white text-lg text-[#E30613] shadow-[0_2px_10px_rgba(26,26,26,0.1)] transition hover:shadow-[0_2px_14px_rgba(26,26,26,0.18)]" title="Favoritos">
-              <svg aria-hidden="true" viewBox="0 0 24 24" className="h-5 w-5 fill-none stroke-current" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><path d="M20.8 8.8c0 5.2-8.8 11-8.8 11s-8.8-5.8-8.8-11a4.8 4.8 0 0 1 8.8-2.6 4.8 4.8 0 0 1 8.8 2.6Z" /></svg>
-              {wishlistCount > 0 && <span className="absolute -right-1 -top-1 flex h-4 min-w-4 items-center justify-center rounded-full bg-[#FFB6C1] px-1 text-[9px] font-bold text-[#1A1A1A]">{wishlistCount}</span>}
-            </button>
             <button type="button" aria-label="Atención al cliente" onClick={onOpenAccount} className="hidden h-10 w-10 items-center justify-center rounded-full border border-[#E2E2E2] bg-white text-sm text-[#1A1A1A] sm:flex" title="Atención al cliente">
               <svg aria-hidden="true" viewBox="0 0 24 24" className="h-5 w-5 fill-none stroke-current" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round"><rect x="3" y="4" width="18" height="12" rx="1.5"/><path d="M8 21h8m-4-5v5m-3-10a3 3 0 1 1 6 0m-7 3c.7-1.5 2-2.3 4-2.3s3.3.8 4 2.3"/></svg>
             </button>
@@ -118,7 +112,7 @@ export default function Header({
             >
               <svg aria-hidden="true" viewBox="0 0 24 24" className="h-4 w-4 fill-none stroke-current" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><circle cx="9" cy="20" r="1"/><circle cx="19" cy="20" r="1"/><path d="M2 3h2l2.7 12.4a2 2 0 0 0 2 1.6h9.7a2 2 0 0 0 2-1.6L22 8H5"/></svg>
               <span className="text-[9px] sm:text-[10px]">Carrito</span>
-              <span className="flex h-5 w-5 items-center justify-center rounded-full bg-[#E987B5] text-[10px] font-bold text-white">
+              <span className="flex h-5 w-5 items-center justify-center rounded-full bg-white text-[10px] font-bold text-[#1A1A1A]">
                 {cartCount}
               </span>
             </button>

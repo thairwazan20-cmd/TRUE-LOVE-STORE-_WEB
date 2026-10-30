@@ -43,7 +43,7 @@
 }
 
 .testimonials-section {
-  background: linear-gradient(180deg, #fff 0%, #fff8fb 100%);
+  background: linear-gradient(180deg, #fff 0%, #fff0f6 100%);
 }
 
 .testimonials-grid {
@@ -246,9 +246,9 @@
   min-width: 148px;
   border: 0;
   border-radius: 999px;
-  background: #d3001c;
+  background: #ffb6c1;
   padding: 11px 22px;
-  color: #fff;
+  color: #1a1a1a;
   font-size: 11px;
   font-weight: 600;
   letter-spacing: 0.08em;
@@ -256,7 +256,8 @@
 }
 
 .monthly-promotion__purchase button:hover {
-  background: #b90010;
+  background: #d3001c;
+  color: #fff;
   box-shadow: 0 8px 20px rgba(227, 6, 19, 0.14);
 }
 
@@ -317,7 +318,7 @@
   overflow: hidden;
   border: 1px solid #e5e5e5;
   border-radius: 11px;
-  background: #fceaf2;
+  background: #fff0f6;
   padding: 0;
   text-align: left;
   box-shadow: 0 8px 22px rgba(58, 36, 30, 0.12), 0 2px 5px rgba(227, 6, 19, 0.08);
@@ -392,7 +393,7 @@
   grid-template-rows: repeat(2, minmax(0, 1fr));
   gap: 8px;
   overflow: hidden;
-  background: #fceaf2;
+  background: #fff0f6;
 }
 
 .collection-intro__collage img {
@@ -434,7 +435,7 @@
 
 .collection-intro__copy h1 {
   margin: 12px 0 0;
-  color: #e30613;
+  color: #1a1a1a;
   font-family: 'Poppins', 'Segoe UI', sans-serif;
   font-size: clamp(30px, 3.5vw, 48px);
   font-weight: 600;
@@ -458,7 +459,7 @@
   border-radius: 999px;
   background: #ffb6c1;
   padding: 12px 20px;
-  color: #fff;
+  color: #1a1a1a;
   font-size: 10px;
   font-weight: 600;
   letter-spacing: 0.08em;
@@ -467,15 +468,15 @@
 }
 
 .collection-intro__cta:hover {
-  border-color: #e30613;
-  background: #e30613;
+  background: #fff;
 }
 
 .collection-products-heading {
   display: flex;
-  align-items: end;
-  justify-content: space-between;
-  gap: 24px;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  text-align: center;
   margin: 52px 0 22px;
   border-bottom: 1px solid #e2e2e2;
   padding-bottom: 18px;

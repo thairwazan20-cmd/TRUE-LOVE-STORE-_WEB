@@ -2,7 +2,7 @@ const tileConfig = [
   { label: 'PHOTOBOOKS | FOTOLIBROS', categoryIndex: 0, productMatch: '18 × 14' },
   { label: 'CUADROS', categoryIndex: 1, productMatch: 'Cuadro “Netflix”' },
   { label: 'ÁLBUM DE FIGURITAS', categoryIndex: 2, productMatch: '50 Figuritas' },
-  { label: 'PACKS & SPECIAL BOXES', categoryIndex: 3, productMatch: 'Box Auténtica' },
+  { label: 'PACKS | SPECIAL BOXES', categoryIndex: 3, productMatch: 'Box Auténtica' },
   { label: 'SCRAPBOOK', category: 'Scrapbook', productMatch: 'Scrapbook 100 Citas' },
   { label: 'CUADERNOS', category: 'Cuadernos', productMatch: 'Agenda Diaria' },
   { label: 'ACORDEÓN BOOK', categoryIndex: 0, productMatch: '22 × 22' },

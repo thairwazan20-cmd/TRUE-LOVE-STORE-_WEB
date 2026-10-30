@@ -20,7 +20,7 @@ export default function WhyChooseUs() {
         <h2 id="why-title" className="text-center text-3xl font-semibold text-[#1A1A1A] sm:text-4xl">¿Por qué elegirnos?</h2>
         <div className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
           {pillars.map(({ icon: Icon, title, text }) => (
-            <article key={title} className="rounded-2xl border border-[#F0E4E9] bg-[#FFF0F5] p-6 text-center">
+            <article key={title} className="rounded-2xl border border-[#F0E4E9] bg-[#FFF0F6] p-6 text-center">
               <span className="mx-auto flex h-12 w-12 items-center justify-center rounded-full border border-[#FFB6C1] bg-white text-[#D3001C]"><Icon aria-hidden="true" size={22} strokeWidth={1.8} /></span>
               <h3 className="mt-4 text-base font-semibold text-[#1A1A1A]">{title}</h3>
               <p className="mt-2 text-sm leading-6 text-[#5C4A52]">{text}</p>

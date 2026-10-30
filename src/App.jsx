@@ -33,8 +33,6 @@ function App() {
   const [isSubscriptionOpen, setIsSubscriptionOpen] = useState(true)
   const [quickProduct, setQuickProduct] = useState(null)
   const [quickVariant, setQuickVariant] = useState(null)
-  const [wishlist, setWishlist] = useState([])
-  const [wishlistOpen, setWishlistOpen] = useState(false)
   const [accountOpen, setAccountOpen] = useState(false)
   const [headerVisible, setHeaderVisible] = useState(true)
   const [viewMode, setViewMode] = useState('grid')
@@ -88,7 +86,6 @@ function App() {
     })
     setQuickProduct(null)
     setQuickVariant(null)
-    setWishlistOpen(false)
     setIsCartOpen(true)
   }
 
@@ -96,12 +93,6 @@ function App() {
     setCartItems((items) => items
       .map((item) => item.key === key ? { ...item, quantity: item.quantity + amount } : item)
       .filter((item) => item.quantity > 0))
-  }
-
-  const toggleWishlist = (product) => {
-    setWishlist((items) => items.some((item) => item.id === product.id)
-      ? items.filter((item) => item.id !== product.id)
-      : [...items, product])
   }
 
   const selectCategory = (category) => {
@@ -138,10 +129,8 @@ function App() {
         searchTerm={searchTerm}
         setSearchTerm={setSearchTerm}
         cartCount={cartCount}
-        wishlistCount={wishlist.length}
         headerVisible={headerVisible}
         onOpenCart={() => setIsCartOpen(true)}
-        onOpenWishlist={() => setWishlistOpen(true)}
         onOpenAccount={() => setAccountOpen(true)}
         viewMode={viewMode}
         onToggleView={() => setViewMode((mode) => mode === 'grid' ? 'list' : 'grid')}
@@ -150,7 +139,7 @@ function App() {
 
       {activeCategory ? (
         <main className="pb-24">
-          <CatalogGrid products={products} selectedCategory={activeCategory} searchTerm={searchTerm} setSearchTerm={setSearchTerm} wishlist={wishlist} onToggleWishlist={toggleWishlist} onQuickView={openQuickView} onAddToCart={addToCart} onBack={showHome} viewMode={viewMode} />
+          <CatalogGrid products={products} selectedCategory={activeCategory} searchTerm={searchTerm} setSearchTerm={setSearchTerm} onQuickView={openQuickView} onAddToCart={addToCart} onBack={showHome} viewMode={viewMode} />
         </main>
       ) : (
         <>
@@ -192,15 +181,6 @@ function App() {
               <p className="mt-5 text-2xl font-semibold text-[#E30613]">{formatPrice(quickVariant?.price ?? quickProduct.price)}</p>
               <button type="button" onClick={() => addToCart(quickProduct, quickVariant)} className="mt-5 rounded-full bg-[#FFB6C1] px-5 py-4 text-xs font-semibold uppercase tracking-[0.14em] text-white transition hover:bg-[#E30613]">Añadir al carrito</button>
             </div>
-          </section>
-        </div>
-      )}
-
-      {wishlistOpen && (
-        <div className="fixed inset-0 z-[60] flex items-center justify-center bg-[#1A1A1A]/50 p-4" onClick={() => setWishlistOpen(false)}>
-          <section role="dialog" aria-modal="true" aria-label="Lista de deseos" className="w-full max-w-lg rounded-2xl bg-white p-6 shadow-2xl" onClick={(event) => event.stopPropagation()}>
-            <div className="flex items-center justify-between"><h2 className="font-display text-4xl">Tus favoritos</h2><button type="button" onClick={() => setWishlistOpen(false)} aria-label="Cerrar favoritos" className="text-2xl">×</button></div>
-            {wishlist.length ? <div className="mt-5 space-y-3">{wishlist.map((product) => <div key={product.id} className="flex items-center gap-3 border-b border-[#EEE6DF] pb-3"><img src={product.image} alt="" className="h-14 w-14 rounded-lg object-cover" /><p className="flex-1 text-sm font-medium">{product.title}</p><button type="button" onClick={() => addToCart(product)} className="text-xs font-semibold text-[#E30613]">Añadir</button></div>)}</div> : <p className="mt-6 text-sm text-[#666]">Aún no tienes productos guardados. Pulsa el corazón en un producto para guardarlo.</p>}
           </section>
         </div>
       )}

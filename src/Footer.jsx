@@ -13,57 +13,50 @@ const socialLinks = [
   { label: 'WhatsApp', href: 'https://wa.me/51960985082', icon: whatsappIcon },
 ]
 
-const quickLinks = [
+const exploreLinks = [
   { label: 'Photobooks', category: 'Photobooks & Fotolibros' },
-  { label: 'Acordeón Books', category: 'Photobooks & Fotolibros' },
-  { label: 'Regalos Especiales', category: 'Packs & Special Boxes' },
-  { label: 'Catálogo Completo', category: 'Todos' },
-]
-
-const supportLinks = [
-  { label: 'Preguntas Frecuentes', text: 'Hola, tengo una consulta sobre sus productos.' },
-  { label: 'Envíos a Nivel Nacional', text: 'Hola, quisiera información sobre envíos a nivel nacional.' },
-  { label: 'Términos y Condiciones', text: 'Hola, quisiera conocer los términos y condiciones.' },
+  { label: 'Cuadros', category: 'Cuadros con Realidad Aumentada' },
+  { label: 'Álbumes', category: 'Álbumes de Figuritas' },
+  { label: 'Regalos personalizados', category: 'Packs & Special Boxes' },
 ]
 
 export default function Footer({ onSelectCategory }) {
   return (
     <footer className="bg-[#1A1A1A] text-white">
-      <div className="mx-auto grid max-w-[1400px] gap-10 px-4 py-14 sm:grid-cols-2 sm:px-6 lg:grid-cols-4 lg:px-8">
+      <div className="mx-auto grid max-w-[1400px] gap-10 px-4 py-14 sm:grid-cols-2 sm:px-6 lg:grid-cols-[1.45fr_1fr_1fr] lg:px-8">
         <div>
           <span className="brand-logo-window brand-logo-window--footer" aria-hidden="true">
             <img src={whiteWordmark} alt="" />
           </span>
-          <p className="mt-3 text-sm text-[#DAD4CF]">Cada detalle, un toque de amor</p>
-          <p className="mt-4 text-xs font-semibold uppercase leading-6 text-[#DAD4CF]">PHOTOBOOKS | FOTOBOOK, CUADROS, SCRAPBOOK, CUADERNOS, OTROS</p>
-          <div className="mt-5 flex items-center gap-5">
-            {socialLinks.map((link) => (
-              <a key={link.label} href={link.href} target="_blank" rel="noreferrer" aria-label={`${link.label} TLS Regalos Perú`} className="transition hover:opacity-70">
-                <img src={link.icon} alt="" className="h-6 w-6 invert" />
-              </a>
-            ))}
-          </div>
+          <p className="mt-3 text-sm text-[#DAD4CF]">Regalos premium para momentos inolvidables</p>
+          <address className="mt-4 not-italic">
+            <ul className="space-y-2 text-sm text-[#DAD4CF]">
+              <li>Lima, Perú</li>
+              <li><a href="https://wa.me/51960985082" target="_blank" rel="noreferrer" className="text-[#FFB6C1] transition hover:text-white">WhatsApp: +51 960 985 082</a></li>
+              <li>Horario de atención: consulta disponibilidad por WhatsApp.</li>
+            </ul>
+          </address>
         </div>
 
-        
-
-        <nav aria-label="Atención al cliente">
-          <p className="text-[10px] font-semibold uppercase text-[#FFB6C1]">Atención al cliente</p>
+        <nav aria-label="Explora">
+          <p className="text-[10px] font-semibold uppercase text-[#FFB6C1]">Explora</p>
           <ul className="mt-4 space-y-3 text-sm text-[#DAD4CF]">
-            {supportLinks.map((link) => (
-              <li key={link.label}><a href={whatsappLink(link.text)} target="_blank" rel="noreferrer" className="transition hover:text-white">{link.label}</a></li>
+            {exploreLinks.map((link) => (
+              <li key={link.label}><button type="button" onClick={() => onSelectCategory(link.category)} className="text-left transition hover:text-white">{link.label}</button></li>
             ))}
           </ul>
         </nav>
 
-        <address className="not-italic">
-          <p className="text-[10px] font-semibold uppercase text-[#FFB6C1]">Contacto</p>
-          <ul className="mt-4 space-y-3 text-sm text-[#DAD4CF]">
-            <li>Lima, Perú</li>
-            <li><a href="https://wa.me/51960985082" target="_blank" rel="noreferrer" className="transition hover:text-white">WhatsApp: +51 960 985 082</a></li>
-            <li>Horario de atención: consulta disponibilidad por WhatsApp.</li>
-          </ul>
-        </address>
+        <div>
+          <p className="text-[10px] font-semibold uppercase text-[#FFB6C1]">Síguenos</p>
+          <div className="mt-4 flex items-center gap-3">
+            {socialLinks.map((link) => (
+              <a key={link.label} href={link.href} target="_blank" rel="noreferrer" aria-label={`${link.label} TLS Regalos Perú`} className="flex h-10 w-10 items-center justify-center rounded-full border border-white/20 bg-white/10 transition hover:bg-white/20">
+                <img src={link.icon} alt="" className="h-4 w-4 invert" />
+              </a>
+            ))}
+          </div>
+        </div>
       </div>
 
       <div className="border-t border-white/15">
