@@ -39,7 +39,7 @@ export default function CartDrawer({ items, isOpen, onClose, onChangeQuantity, o
         role="dialog"
         aria-modal="true"
         aria-label="Tu carrito de compras"
-        className={`absolute right-0 top-0 flex h-full w-full max-w-[480px] flex-col border-l border-white/40 bg-[#FFAFD4] text-white shadow-[-20px_0_70px_rgba(26,26,26,0.2)] transition-transform duration-300 ease-out ${isOpen ? 'translate-x-0' : 'translate-x-full'}`}
+        className={`absolute right-0 top-0 flex h-full w-full max-w-[480px] flex-col border-l border-white/40 bg-[#FFB6C1] text-white shadow-[-20px_0_70px_rgba(26,26,26,0.2)] transition-transform duration-300 ease-out ${isOpen ? 'translate-x-0' : 'translate-x-full'}`}
       >
         <header className="flex items-center justify-between border-b border-white/50 px-6 py-5">
           <div>
@@ -51,7 +51,7 @@ export default function CartDrawer({ items, isOpen, onClose, onChangeQuantity, o
 
         {items.length === 0 ? (
           <div className="flex flex-1 flex-col items-center justify-center px-8 text-center">
-            <span className="text-5xl text-[#FFAFD4]">♡</span>
+            <span className="text-5xl text-[#FFB6C1]">♡</span>
             <h3 className="mt-4 text-xl font-semibold text-white">Tu carrito está vacío</h3>
             <p className="mt-2 text-sm leading-6 text-white/90">Descubre regalos personalizados para tus momentos especiales.</p>
             <button type="button" onClick={onClose} className="mt-6 rounded-full bg-white px-5 py-3 text-xs font-semibold uppercase tracking-[0.15em] text-[#E30613] transition hover:bg-[#E30613] hover:text-white">Explorar catálogo</button>
@@ -83,7 +83,7 @@ export default function CartDrawer({ items, isOpen, onClose, onChangeQuantity, o
               ))}
             </div>
 
-            <footer className="border-t border-white/50 bg-[#FFAFD4] px-6 pb-6 pt-5">
+            <footer className="border-t border-white/50 bg-[#FFB6C1] px-6 pb-6 pt-5">
               <div className="flex items-center justify-between text-sm text-white">
                 <span>Subtotal</span>
                 <strong className="text-xl text-white">{formatPrice(subtotal)}</strong>

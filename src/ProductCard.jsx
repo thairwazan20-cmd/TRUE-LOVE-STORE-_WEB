@@ -25,7 +25,7 @@ export default function ProductCard({ product, onQuickView, onAddToCart, isWishl
           </div>
         </button>
 
-        {product.badge && <div className="absolute left-3 top-3 inline-flex items-center rounded-full bg-[#E30613] px-2.5 py-1 text-[9px] font-semibold uppercase tracking-[0.18em] text-white">{product.badge}</div>}
+        {product.badge && <div className="absolute left-3 top-3 inline-flex items-center rounded-full border border-white/50 bg-black/40 px-3 py-1 text-[9px] font-medium uppercase text-white">{product.badge}</div>}
         <button type="button" onClick={() => onToggleWishlist(product)} aria-label={isWishlisted ? `Quitar ${product.title} de favoritos` : `Guardar ${product.title} en favoritos`} className={`absolute right-3 top-3 flex h-9 w-9 items-center justify-center rounded-full border border-white/70 bg-white/85 text-xl backdrop-blur-md ${isWishlisted ? 'text-[#E30613]' : 'text-[#58514A]'}`}>
           {isWishlisted ? '♥' : '♡'}
         </button>
@@ -33,20 +33,15 @@ export default function ProductCard({ product, onQuickView, onAddToCart, isWishl
       </div>
 
       <div className="space-y-3 p-4 sm:p-5">
-        <div className="flex items-start justify-between gap-3 text-[9px] font-semibold uppercase tracking-[0.14em] text-[#E30613]">
-          <span>{product.category}</span>
-          <span className="shrink-0 text-[#E30613]">★★★★★</span>
-        </div>
-
         <h3 className="min-h-12 text-base font-semibold leading-6 text-[#1A1A1A]">{product.title}</h3>
 
         <div className="flex min-h-8 items-center justify-between gap-2">
-          <span className="text-lg font-semibold text-[#E30613]">{priceLabel}</span>
+          <span className="text-lg font-semibold text-[#D3001C]">{priceLabel}</span>
           {product.variants?.length > 1 && <span className="text-[9px] uppercase tracking-[0.1em] text-[#777]">Variantes</span>}
         </div>
         <div className="flex items-center gap-2 border-t border-[#EAE2DA] pt-3">
-          <button type="button" onClick={() => onQuickView(product)} className="flex-1 rounded-full border border-[#E2E2E2] px-3 py-2.5 text-[9px] font-semibold uppercase tracking-[0.1em] text-[#E30613] transition hover:border-[#E30613]">Detalles</button>
-          <button type="button" onClick={() => onAddToCart(product)} className="flex-1 rounded-full bg-[#FFAFD4] px-3 py-2.5 text-[10px] font-semibold uppercase tracking-[0.12em] text-white transition hover:bg-[#E30613]">Comprar</button>
+          <button type="button" onClick={() => onQuickView(product)} className="flex-1 rounded-full border border-[#FFB6C1] bg-[#FFB6C1] px-3 py-2.5 text-[10px] font-semibold uppercase text-[#1A1A1A] transition hover:bg-white">Detalles</button>
+          <button type="button" onClick={() => onAddToCart(product)} className="flex-1 rounded-full border border-[#D3001C] bg-[#D3001C] px-3 py-2.5 text-[10px] font-semibold uppercase text-white transition hover:bg-[#B90010]">Comprar</button>
         </div>
       </div>
     </article>

@@ -31,8 +31,8 @@ export default function Header({
 
   return (
     <header className={`fixed inset-x-0 top-0 z-40 bg-[#F9F9F9] transition-transform duration-300 ${headerVisible ? 'translate-y-0' : '-translate-y-full'}`}>
-      <a href="https://wa.me/51960985082" target="_blank" rel="noreferrer" aria-label="ENVÍOS A NIVEL NACIONAL | WHATSAPP: 960 985 082" className="flex items-center justify-center gap-2 bg-[#D3001C] px-4 py-2 text-center text-[10px] font-semibold uppercase tracking-[0.12em] text-white transition hover:bg-[#B90010] sm:px-6">
-        <span>ENVÍOS A NIVEL NACIONAL |</span>
+      <a href="https://wa.me/51960985082" target="_blank" rel="noreferrer" aria-label="ENVÍOS A NIVEL NACIONAL, WHATSAPP: 960 985 082" className="flex items-center justify-center gap-2 bg-[#D3001C] px-4 py-2 text-center text-[10px] font-semibold uppercase tracking-[0.12em] text-white transition hover:bg-[#B90010] sm:px-6">
+        <span>ENVÍOS A NIVEL NACIONAL</span>
         <img src={whatsappIcon} alt="" className="h-4 w-4 invert" />
         <span>960 985 082</span>
       </a>
@@ -102,7 +102,7 @@ export default function Header({
           <div className="flex items-center justify-end gap-1.5 sm:gap-2 lg:col-start-3 lg:row-start-1 lg:gap-3">
             <button type="button" aria-label={`Favoritos, ${wishlistCount} productos`} onClick={onOpenWishlist} className="relative flex h-10 w-10 items-center justify-center rounded-full bg-white text-lg text-[#E30613] shadow-[0_2px_10px_rgba(26,26,26,0.1)] transition hover:shadow-[0_2px_14px_rgba(26,26,26,0.18)]" title="Favoritos">
               <svg aria-hidden="true" viewBox="0 0 24 24" className="h-5 w-5 fill-none stroke-current" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><path d="M20.8 8.8c0 5.2-8.8 11-8.8 11s-8.8-5.8-8.8-11a4.8 4.8 0 0 1 8.8-2.6 4.8 4.8 0 0 1 8.8 2.6Z" /></svg>
-              {wishlistCount > 0 && <span className="absolute -right-1 -top-1 flex h-4 min-w-4 items-center justify-center rounded-full bg-[#FFAFD4] px-1 text-[9px] font-bold text-[#1A1A1A]">{wishlistCount}</span>}
+              {wishlistCount > 0 && <span className="absolute -right-1 -top-1 flex h-4 min-w-4 items-center justify-center rounded-full bg-[#FFB6C1] px-1 text-[9px] font-bold text-[#1A1A1A]">{wishlistCount}</span>}
             </button>
             <button type="button" aria-label="Atención al cliente" onClick={onOpenAccount} className="hidden h-10 w-10 items-center justify-center rounded-full border border-[#E2E2E2] bg-white text-sm text-[#1A1A1A] sm:flex" title="Atención al cliente">
               <svg aria-hidden="true" viewBox="0 0 24 24" className="h-5 w-5 fill-none stroke-current" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round"><rect x="3" y="4" width="18" height="12" rx="1.5"/><path d="M8 21h8m-4-5v5m-3-10a3 3 0 1 1 6 0m-7 3c.7-1.5 2-2.3 4-2.3s3.3.8 4 2.3"/></svg>

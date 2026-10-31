@@ -20,8 +20,12 @@ const occasionCategories = {
   other: ['Photobooks & Fotolibros', 'Cuadros con Realidad Aumentada', 'Álbumes de Figuritas', 'Packs & Special Boxes', 'Scrapbooks & Agendas'],
 }
 
+const collectionTitles = {
+  'Photobooks & Fotolibros': 'Photobook | Fotolibros',
+}
+
 const collectionDescriptions = {
-  'Photobooks & Fotolibros': 'Diseñamos tus fotografías como un libro para volver a tus momentos favoritos. Elige el formato y crea una edición a tu medida.',
+  'Photobooks & Fotolibros': 'Diseñamos tus fotografías como un libro para volver a tus momentos favoritos. Elige el formato y creamos el diseño a pedido.',
   'Cuadros con Realidad Aumentada': 'Convierte una foto especial en una pieza para tu hogar. Explora diseños personalizados y distintos tamaños.',
   'Álbumes de Figuritas': 'Un álbum personal para reunir personas, recuerdos y pequeños detalles en una sola historia.',
   'Packs & Special Boxes': 'Encuentra una caja personalizada para sorprender, celebrar y hacer que el momento de abrirla sea inolvidable.',
@@ -73,14 +77,13 @@ export default function CatalogGrid({ products, selectedCategory, searchTerm, se
         </div>
         <div className="collection-intro__copy">
           <button type="button" onClick={onBack} className="collection-intro__back">← Volver a categorías</button>
-          <p className="collection-intro__eyebrow">TLS REGALOS PERÚ · COLECCIÓN</p>
-          <h1>{selectedCategory}</h1>
+          <h1>{collectionTitles[selectedCategory] ?? selectedCategory}</h1>
           <p className="collection-intro__description">{collectionDescriptions[selectedCategory]}</p>
           <button type="button" className="collection-intro__cta" onClick={() => document.getElementById('collection-products')?.scrollIntoView({ behavior: 'smooth', block: 'start' })}>Explorar diseños <span aria-hidden="true">↓</span></button>
         </div>
       </div>
       <div className="collection-products-heading" id="collection-products">
-        <div><p className="collection-intro__eyebrow">PIEZAS PERSONALIZADAS</p><h2>{selectedCategory}</h2></div>
+        <div><p className="collection-intro__eyebrow">PIEZAS PERSONALIZADAS</p><h2>{collectionTitles[selectedCategory] ?? selectedCategory}</h2></div>
         <p>Diseños seleccionados para crear un regalo único.</p>
       </div>
       <div className="mb-6 flex flex-col gap-4 border-b border-[#EAE2DA] pb-5 sm:flex-row sm:items-center sm:justify-between">
@@ -90,7 +93,7 @@ export default function CatalogGrid({ products, selectedCategory, searchTerm, se
           {(searchTerm || selectedOccasion !== 'best-sellers') && <button type="button" onClick={clearFilters} className="text-[10px] font-semibold uppercase tracking-[0.12em] text-[#E30613]">Limpiar filtros</button>}
         </div>
       </div>
-      {visibleProducts.length ? <div className={`catalog-products ${viewMode === 'list' ? 'catalog-products--list' : 'catalog-products--grid'}`}>{visibleProducts.map((product) => <ProductCard key={product.id} product={product} isWishlisted={wishlist.some((item) => item.id === product.id)} onToggleWishlist={onToggleWishlist} onQuickView={onQuickView} onAddToCart={onAddToCart} />)}</div> : <div className="rounded-xl border border-[#E2E2E2] bg-white p-12 text-center"><h3 className="font-display text-3xl">No encontramos ese regalo</h3><p className="mt-2 text-sm text-[#666]">Ajusta los filtros para ver más opciones.</p><button type="button" onClick={clearFilters} className="mt-5 rounded-full bg-[#FFAFD4] px-5 py-3 text-xs font-semibold text-white transition hover:bg-[#E30613]">Limpiar filtros</button></div>}
+      {visibleProducts.length ? <div className={`catalog-products ${viewMode === 'list' ? 'catalog-products--list' : 'catalog-products--grid'}`}>{visibleProducts.map((product) => <ProductCard key={product.id} product={product} isWishlisted={wishlist.some((item) => item.id === product.id)} onToggleWishlist={onToggleWishlist} onQuickView={onQuickView} onAddToCart={onAddToCart} />)}</div> : <div className="rounded-xl border border-[#E2E2E2] bg-white p-12 text-center"><h3 className="font-display text-3xl">No encontramos ese regalo</h3><p className="mt-2 text-sm text-[#666]">Ajusta los filtros para ver más opciones.</p><button type="button" onClick={clearFilters} className="mt-5 rounded-full bg-[#FFB6C1] px-5 py-3 text-xs font-semibold text-white transition hover:bg-[#E30613]">Limpiar filtros</button></div>}
     </section>
   )
 }

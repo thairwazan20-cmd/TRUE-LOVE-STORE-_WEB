@@ -1,7 +1,13 @@
-import { Gift, Image, MessageCircle, Truck } from 'lucide-react'
+import { Gift, Image, Truck } from 'lucide-react'
+import whatsappIcon from './assets/whatsapp.svg'
+
+function WhatsAppIcon({ size }) {
+  const mask = `url("${whatsappIcon}") center / contain no-repeat`
+  return <span style={{ width: size, height: size, backgroundColor: 'currentColor', mask, WebkitMask: mask }} />
+}
 
 const pillars = [
-  { icon: MessageCircle, title: 'Diseño 100% personalizado', text: 'Te asesoramos por WhatsApp durante todo el proceso.' },
+  { icon: WhatsAppIcon, title: 'Diseño 100% personalizado', text: 'Te asesoramos por WhatsApp durante todo el proceso.' },
   { icon: Truck, title: 'Envíos garantizados', text: 'Enviamos a todo el Perú.' },
   { icon: Image, title: 'Calidad fotográfica premium', text: 'Impresión en alta definición para tus mejores recuerdos.' },
   { icon: Gift, title: 'Presentación inolvidable', text: 'Detalles pensados para fechas especiales.' },

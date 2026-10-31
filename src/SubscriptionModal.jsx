@@ -27,7 +27,7 @@ export default function SubscriptionModal({ isOpen, onClose }) {
         </button>
 
         <div className="grid md:grid-cols-[0.9fr_1.1fr]">
-          <div aria-hidden="true" className="relative min-h-[180px] overflow-hidden bg-gradient-to-br from-[#FFAFD4] via-[#F8C9DE] to-[#FFF0F6] md:min-h-[410px]">
+          <div aria-hidden="true" className="relative min-h-[180px] overflow-hidden bg-gradient-to-br from-[#FFB6C1] via-[#F8C9DE] to-[#FFF0F6] md:min-h-[410px]">
             <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,_rgba(255,255,255,0.18),transparent_50%)]" />
             <div className="absolute inset-x-0 bottom-0 h-1/3 bg-gradient-to-t from-black/10 to-transparent" />
           </div>
@@ -48,7 +48,7 @@ export default function SubscriptionModal({ isOpen, onClose }) {
               href="https://wa.me/51960985082?text=Hola,%20deseo%20más%20información%20sobre%20la%20Suscripción%20Mensual%20de%20PHOTOBOOK%20PREMIUM"
               target="_blank"
               rel="noreferrer"
-              className="mt-6 inline-flex items-center justify-center rounded-full bg-[#FFAFD4] px-5 py-3 text-sm font-semibold text-white shadow-[0_12px_30px_rgba(227,6,19,0.12)] transition hover:-translate-y-0.5 hover:bg-[#E30613]"
+              className="mt-6 inline-flex items-center justify-center rounded-full bg-[#FFB6C1] px-5 py-3 text-sm font-semibold text-white shadow-[0_12px_30px_rgba(227,6,19,0.12)] transition hover:-translate-y-0.5 hover:bg-[#E30613]"
             >
               Conoce más por WhatsApp
             </a>
