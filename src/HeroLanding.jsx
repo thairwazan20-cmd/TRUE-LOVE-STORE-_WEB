@@ -26,7 +26,7 @@ export default function HeroLanding({ onSelectCategory }) {
       <div className="absolute inset-0 z-10 bg-[linear-gradient(0deg,rgba(15,15,15,0.35),transparent_45%)]" />
       <div className="relative z-20 mx-auto flex w-full max-w-[1440px] items-end justify-between gap-8 px-5 pb-24 pt-44 sm:px-8 sm:pb-28 lg:px-12 lg:pb-32">
         <div key={activeIndex} className="hero-landing__copy max-w-[760px]">
-          <div className="flex flex-wrap items-center gap-2"><span className="rounded-full border border-[#FFB6C1] px-3.5 py-1.5 text-[9px] font-semibold uppercase text-white sm:text-[10px]">{activeSlide.eyebrow}</span><span className="rounded-full border border-[#FFB6C1] bg-[#FFB6C1] px-3.5 py-1.5 text-[9px] font-semibold uppercase text-[#1A1A1A] sm:text-[10px]">{activeSlide.offer}</span></div>
+          <div className="flex flex-wrap items-center gap-2"><span className="rounded-full border border-white/50 bg-black/40 px-3.5 py-1.5 text-[9px] font-semibold uppercase text-white sm:text-[10px]">{activeSlide.eyebrow}</span><span className="rounded-full border border-[#FFB6C1] bg-[#FFB6C1] px-3.5 py-1.5 text-[9px] font-semibold uppercase text-[#1A1A1A] sm:text-[10px]">{activeSlide.offer}</span></div>
           <p className="mt-4 text-xs font-semibold uppercase tracking-[0.12em] text-white/90">{activeSlide.label}</p>
           <h1 className="mt-2 max-w-[700px] text-4xl font-semibold leading-[1.08] sm:text-6xl lg:text-7xl">{activeSlide.title}</h1>
           <p className="mt-4 text-xs font-semibold text-white">{activeSlide.price}</p>
