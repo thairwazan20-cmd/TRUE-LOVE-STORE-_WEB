@@ -104,10 +104,10 @@ export default function Header({
               <svg aria-hidden="true" viewBox="0 0 24 24" className="h-5 w-5 fill-none stroke-current" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><path d="M20.8 8.8c0 5.2-8.8 11-8.8 11s-8.8-5.8-8.8-11a4.8 4.8 0 0 1 8.8-2.6 4.8 4.8 0 0 1 8.8 2.6Z" /></svg>
               {wishlistCount > 0 && <span className="absolute -right-1 -top-1 flex h-4 min-w-4 items-center justify-center rounded-full bg-[#FFAFD4] px-1 text-[9px] font-bold text-[#1A1A1A]">{wishlistCount}</span>}
             </button>
-            <button type="button" aria-label="Atención al cliente" onClick={onOpenAccount} className="hidden h-10 w-10 items-center justify-center rounded-full border border-[#E2E2E2] bg-white text-sm text-[#1A1A1A] transition hover:border-[#E30613] sm:flex" title="Atención al cliente">
+            <button type="button" aria-label="Atención al cliente" onClick={onOpenAccount} className="hidden h-10 w-10 items-center justify-center rounded-full border border-[#E2E2E2] bg-white text-sm text-[#1A1A1A] sm:flex" title="Atención al cliente">
               <svg aria-hidden="true" viewBox="0 0 24 24" className="h-5 w-5 fill-none stroke-current" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round"><rect x="3" y="4" width="18" height="12" rx="1.5"/><path d="M8 21h8m-4-5v5m-3-10a3 3 0 1 1 6 0m-7 3c.7-1.5 2-2.3 4-2.3s3.3.8 4 2.3"/></svg>
             </button>
-            <button type="button" aria-label={`Cambiar a vista ${viewMode === 'grid' ? 'de lista' : 'de cuadrícula'}`} aria-pressed={viewMode === 'list'} onClick={onToggleView} className="hidden h-10 w-10 items-center justify-center rounded-full border border-[#E2E2E2] bg-white text-[#1A1A1A] transition hover:border-[#E30613] sm:flex" title={`Vista ${viewMode === 'grid' ? 'de cuadrícula' : 'de lista'}`}>
+            <button type="button" aria-label={`Cambiar a vista ${viewMode === 'grid' ? 'de lista' : 'de cuadrícula'}`} aria-pressed={viewMode === 'list'} onClick={onToggleView} className="hidden h-10 w-10 items-center justify-center rounded-full border border-[#E2E2E2] bg-white text-[#1A1A1A] sm:flex" title={`Vista ${viewMode === 'grid' ? 'de cuadrícula' : 'de lista'}`}>
               {viewMode === 'grid' ? <List aria-hidden="true" size={19} strokeWidth={1.8} /> : <LayoutGrid aria-hidden="true" size={19} strokeWidth={1.8} />}
             </button>
             <button

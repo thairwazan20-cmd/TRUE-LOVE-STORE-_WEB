@@ -1,4 +1,4 @@
-const facebookUrl = 'https://web.facebook.com/tlsregalosperu/?_rdc=1&_rdr#'
+const facebookUrl = 'https://www.facebook.com/tlsregalosperu/reviews'
 
 const reviews = [
   { quote: 'LA ATENCION SUPER BUENA MEDIANTE WSP LA EDITORA SE ENCARGO DE HACER EL DISEÑO JUNTO CONMIGO Y MI FOTOBOOK QUEDO COMO YO LO IMAGINE ME GUSTO LA PACIENCIA QUE TUVO GRACIAS DE VERDAD 100% RECOMENDADO' },
@@ -20,7 +20,6 @@ export default function Testimonials() {
         <div className="testimonials-grid mt-10">
           {reviews.map(({ quote, author }) => (
             <blockquote key={quote} className="testimonial-card">
-              <span className="rounded-full border border-[#FFB6C1] bg-[#FFF0F5] px-3 py-1 text-[10px] font-semibold text-[#D3001C]">Opinión Verificada</span>
               <div className="testimonial-card__rating" aria-label="5 estrellas">★★★★★</div>
               <p className="testimonial-card__quote">“{quote}”</p>
               {author && <cite className="mb-3 text-xs font-semibold not-italic text-[#1A1A1A]">{author}</cite>}

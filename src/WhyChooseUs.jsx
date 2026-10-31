@@ -11,7 +11,7 @@ export default function WhyChooseUs() {
   return (
     <section className="bg-white py-16" aria-labelledby="why-title">
       <div className="mx-auto max-w-[1400px] px-5 sm:px-6 lg:px-10">
-        <h2 id="why-title" className="text-center text-3xl font-semibold text-[#1A1A1A] sm:text-4xl">Por qué elegirnos</h2>
+        <h2 id="why-title" className="text-center text-3xl font-semibold text-[#1A1A1A] sm:text-4xl">¿Por qué elegirnos?</h2>
         <div className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
           {pillars.map(({ icon: Icon, title, text }) => (
             <article key={title} className="rounded-2xl border border-[#F0E4E9] bg-[#FFF0F5] p-6 text-center">
