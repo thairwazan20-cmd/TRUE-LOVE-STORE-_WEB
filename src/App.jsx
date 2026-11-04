@@ -154,25 +154,25 @@ function App() {
 
       <Footer onSelectCategory={selectCategory} />
 
-      <nav aria-label="Navegación móvil" className="fixed inset-x-0 bottom-0 z-40 grid grid-cols-4 border-t border-[#E2E2E2] bg-white/95 px-2 pb-[max(env(safe-area-inset-bottom),8px)] pt-2 shadow-[0_-8px_30px_rgba(26,26,26,0.08)] backdrop-blur-xl md:hidden">
-        <a href="#inicio" onClick={(event) => { event.preventDefault(); showHome() }} className="flex flex-col items-center justify-center gap-1.5 py-2 text-[9px] font-medium uppercase leading-none tracking-[0.1em] text-[#5B5550]">
-          <span className="flex h-5 w-5 items-center justify-center text-xl leading-none text-[#E30613]">⌂</span>
-          <span className="leading-none">Inicio</span>
+      <nav aria-label="Navegación móvil" className="fixed inset-x-0 bottom-0 z-40 grid grid-cols-4 border-t border-[#E2E2E2] bg-white/95 px-2 pb-[max(env(safe-area-inset-bottom),8px)] pt-3 shadow-[0_-8px_30px_rgba(26,26,26,0.08)] backdrop-blur-xl md:hidden">
+        <a href="#inicio" onClick={(event) => { event.preventDefault(); showHome() }} className="flex flex-col items-center justify-center gap-1.5 py-1">
+          <span className="flex h-5 w-5 items-center justify-center text-[20px] leading-none text-[#E30613]">⌂</span>
+          <span className="text-[9px] font-semibold uppercase leading-none tracking-[0.05em] text-[#5B5550]">Inicio</span>
         </a>
-        <button type="button" onClick={focusSearch} className="flex flex-col items-center justify-center gap-1.5 py-2 text-[9px] font-medium uppercase leading-none tracking-[0.1em] text-[#5B5550]">
-          <span className="flex h-5 w-5 items-center justify-center text-xl leading-none text-[#E30613]">⌕</span>
-          <span className="leading-none">Buscar</span>
+        <button type="button" onClick={focusSearch} className="flex flex-col items-center justify-center gap-1.5 py-1">
+          <span className="flex h-5 w-5 items-center justify-center text-[20px] leading-none text-[#E30613]">⌕</span>
+          <span className="text-[9px] font-semibold uppercase leading-none tracking-[0.05em] text-[#5B5550]">Buscar</span>
         </button>
-        <button type="button" onClick={() => setIsCartOpen(true)} className="relative flex flex-col items-center justify-center gap-1.5 py-2 text-[9px] font-medium uppercase leading-none tracking-[0.1em] text-[#5B5550]">
+        <button type="button" onClick={() => setIsCartOpen(true)} className="relative flex flex-col items-center justify-center gap-1.5 py-1">
           <span className="flex h-5 w-5 items-center justify-center">
             <svg aria-hidden="true" viewBox="0 0 24 24" className="h-5 w-5 fill-none stroke-[#E30613]" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><circle cx="9" cy="20" r="1"/><circle cx="19" cy="20" r="1"/><path d="M2 3h2l2.7 12.4a2 2 0 0 0 2 1.6h9.7a2 2 0 0 0 2-1.6L22 8H5"/></svg>
           </span>
-          <span className="leading-none">Carrito</span>
-          {cartCount > 0 && <span className="absolute right-1/4 top-1 flex h-4 min-w-4 items-center justify-center rounded-full bg-[#FFB6C1] px-1 text-[9px] font-semibold text-[#1A1A1A]">{cartCount}</span>}
+          <span className="text-[9px] font-semibold uppercase leading-none tracking-[0.05em] text-[#5B5550]">Carrito</span>
+          {cartCount > 0 && <span className="absolute right-1/4 top-0 flex h-4 min-w-4 items-center justify-center rounded-full bg-[#FFB6C1] px-1 text-[9px] font-semibold text-[#1A1A1A]">{cartCount}</span>}
         </button>
-        <a href="https://wa.me/51960985082" target="_blank" rel="noreferrer" className="flex flex-col items-center justify-center gap-1.5 py-2 text-[9px] font-medium uppercase leading-none tracking-[0.1em] text-[#5B5550]">
-          <span className="flex h-5 w-5 items-center justify-center text-xl leading-none text-[#E30613]">◉</span>
-          <span className="leading-none">WhatsApp</span>
+        <a href="https://wa.me/51960985082" target="_blank" rel="noreferrer" className="flex flex-col items-center justify-center gap-1.5 py-1">
+          <span className="flex h-5 w-5 items-center justify-center text-[20px] leading-none text-[#E30613]">◉</span>
+          <span className="text-[9px] font-semibold uppercase leading-none tracking-[0.05em] text-[#5B5550]">WhatsApp</span>
         </a>
       </nav>
 
