@@ -11,6 +11,9 @@ import Header from './Header'
 import HeroLanding from './HeroLanding'
 import PromotionsSection from './PromotionsSection'
 import SubscriptionModal from './SubscriptionModal'
+import Preloader from './Preloader'
+import CustomCursor from './CustomCursor'
+import PageEnhancements from './PageEnhancements'
 import { categories, products } from './data/products'
 
 const formatPrice = (value) => `S/ ${Number(value).toFixed(2)}`
@@ -123,6 +126,9 @@ function App() {
 
   return (
     <div id="top" className="min-h-screen bg-white text-[#1A1A1A]">
+      <Preloader />
+      <CustomCursor />
+      <PageEnhancements routeKey={`${activeCategory ?? 'home'}-${viewMode}`} />
       <Header
         catalog={products}
         onSelectCategory={selectCategory}
@@ -168,7 +174,7 @@ function App() {
             <svg aria-hidden="true" viewBox="0 0 24 24" className="h-5 w-5 fill-none stroke-[#E30613]" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><circle cx="9" cy="20" r="1"/><circle cx="19" cy="20" r="1"/><path d="M2 3h2l2.7 12.4a2 2 0 0 0 2 1.6h9.7a2 2 0 0 0 2-1.6L22 8H5"/></svg>
           </span>
           <span className="text-[9px] font-semibold uppercase leading-none tracking-[0.05em] text-[#5B5550]">Carrito</span>
-          {cartCount > 0 && <span className="absolute right-1/4 top-0 flex h-4 min-w-4 items-center justify-center rounded-full bg-[#FFB6C1] px-1 text-[9px] font-semibold text-[#1A1A1A]">{cartCount}</span>}
+          {cartCount > 0 && <span className="absolute right-1/4 top-0 flex h-4 min-w-4 items-center justify-center rounded-full bg-[#F5B4D2] px-1 text-[9px] font-semibold text-[#1A1A1A]">{cartCount}</span>}
         </button>
         <a href="https://wa.me/51960985082" target="_blank" rel="noreferrer" className="flex flex-col items-center justify-center gap-1.5 py-1">
           <span className="flex h-5 w-5 items-center justify-center text-[20px] leading-none text-[#E30613]">◉</span>
@@ -194,7 +200,7 @@ function App() {
                 </select>
               </label>
               <p className="mt-5 text-2xl font-semibold text-[#E30613]">{formatPrice(quickVariant?.price ?? quickProduct.price)}</p>
-              <button type="button" onClick={() => addToCart(quickProduct, quickVariant)} className="mt-5 rounded-full bg-[#FFB6C1] px-5 py-4 text-xs font-semibold uppercase tracking-[0.14em] text-white transition hover:bg-[#E30613]">Añadir al carrito</button>
+              <button type="button" onClick={() => addToCart(quickProduct, quickVariant)} className="mt-5 rounded-full bg-[#F5B4D2] px-5 py-4 text-xs font-semibold uppercase tracking-[0.14em] text-[#1A1A1A] transition hover:bg-[#E30613] hover:text-white">Añadir al carrito</button>
             </div>
           </section>
         </div>
@@ -207,7 +213,7 @@ function App() {
             <p className="text-[10px] font-semibold uppercase tracking-[0.2em] text-[#E30613]">Atención TLS</p>
             <h2 className="mt-2 font-display text-4xl">Estamos para ayudarte</h2>
             <p className="mt-3 text-sm leading-6 text-[#666]">Escríbenos para consultar pedidos, personalización o envíos a todo el Perú.</p>
-            <a href="https://wa.me/51960985082?text=Hola,%20necesito%20ayuda%20con%20un%20pedido%20de%20TLS%20Regalos%20Perú" target="_blank" rel="noreferrer" className="mt-6 inline-flex rounded-full bg-[#FFB6C1] px-6 py-3 text-xs font-semibold uppercase tracking-[0.14em] text-white transition hover:bg-[#E30613]">Contactar por WhatsApp</a>
+            <a href="https://wa.me/51960985082?text=Hola,%20necesito%20ayuda%20con%20un%20pedido%20de%20TLS%20Regalos%20Perú" target="_blank" rel="noreferrer" className="mt-6 inline-flex rounded-full bg-[#F5B4D2] px-6 py-3 text-xs font-semibold uppercase tracking-[0.14em] text-[#1A1A1A] transition hover:bg-[#E30613] hover:text-white">Contactar por WhatsApp</a>
           </section>
         </div>
       )}

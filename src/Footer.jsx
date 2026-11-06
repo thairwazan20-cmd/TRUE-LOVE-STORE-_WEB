@@ -32,14 +32,14 @@ export default function Footer({ onSelectCategory }) {
           <address className="mt-4 not-italic">
             <ul className="space-y-2 text-sm text-[#DAD4CF]">
               <li>Lima, Perú</li>
-              <li><a href="https://wa.me/51960985082" target="_blank" rel="noreferrer" className="text-[#FFB6C1] transition hover:text-white">WhatsApp: +51 960 985 082</a></li>
+              <li><a href="https://wa.me/51960985082" target="_blank" rel="noreferrer" className="text-[#F5B4D2] transition hover:text-white">WhatsApp: +51 960 985 082</a></li>
               <li>Horario de atención: consulta disponibilidad por WhatsApp.</li>
             </ul>
           </address>
         </div>
 
         <nav aria-label="Explora">
-          <p className="text-[10px] font-semibold uppercase text-[#FFB6C1]">Explora</p>
+          <p className="text-[10px] font-semibold uppercase text-[#F5B4D2]">Explora</p>
           <ul className="mt-4 space-y-3 text-sm text-[#DAD4CF]">
             {exploreLinks.map((link) => (
               <li key={link.label}><button type="button" onClick={() => onSelectCategory(link.category)} className="text-left transition hover:text-white">{link.label}</button></li>
@@ -48,7 +48,7 @@ export default function Footer({ onSelectCategory }) {
         </nav>
 
         <div>
-          <p className="text-[10px] font-semibold uppercase text-[#FFB6C1]">Síguenos</p>
+          <p className="text-[10px] font-semibold uppercase text-[#F5B4D2]">Síguenos</p>
           <div className="mt-4 flex items-center gap-3">
             {socialLinks.map((link) => (
               <a key={link.label} href={link.href} target="_blank" rel="noreferrer" aria-label={`${link.label} TLS Regalos Perú`} className="flex h-10 w-10 items-center justify-center rounded-full border border-white/20 bg-white/10 transition hover:bg-white/20">

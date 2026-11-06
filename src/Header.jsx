@@ -108,7 +108,7 @@ export default function Header({
               type="button"
               onClick={onOpenCart}
               aria-label={`Abrir carrito, ${cartCount} productos`}
-              className="relative inline-flex h-10 items-center gap-2 rounded-full border border-[#FFB6C1] bg-[#FFB6C1] px-3 text-[10px] font-semibold uppercase tracking-[0.12em] text-white shadow-[0_10px_25px_rgba(227,6,19,0.12)] transition hover:bg-[#D3001C] sm:px-4"
+              className="relative inline-flex h-10 items-center gap-2 rounded-full border border-[#F5B4D2] bg-[#F5B4D2] px-3 text-[10px] font-semibold uppercase tracking-[0.12em] text-[#1A1A1A] shadow-[0_10px_25px_rgba(245,180,210,0.45)] transition hover:border-[#D3001C] hover:bg-[#D3001C] hover:text-white sm:px-4"
             >
               <svg aria-hidden="true" viewBox="0 0 24 24" className="h-4 w-4 fill-none stroke-current" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><circle cx="9" cy="20" r="1"/><circle cx="19" cy="20" r="1"/><path d="M2 3h2l2.7 12.4a2 2 0 0 0 2 1.6h9.7a2 2 0 0 0 2-1.6L22 8H5"/></svg>
               <span className="text-[9px] sm:text-[10px]">Carrito</span>

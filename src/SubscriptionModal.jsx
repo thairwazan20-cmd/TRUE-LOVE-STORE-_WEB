@@ -48,7 +48,7 @@ export default function SubscriptionModal({ isOpen, onClose }) {
               href="https://wa.me/51960985082?text=Hola,%20deseo%20más%20información%20sobre%20la%20Suscripción%20Mensual%20de%20PHOTOBOOK%20PREMIUM"
               target="_blank"
               rel="noreferrer"
-              className="mt-6 inline-flex items-center justify-center rounded-full bg-[#FFB6C1] px-5 py-3 text-sm font-semibold text-white shadow-[0_12px_30px_rgba(227,6,19,0.12)] transition hover:-translate-y-0.5 hover:bg-[#E30613]"
+              className="mt-6 inline-flex items-center justify-center rounded-full bg-[#F5B4D2] px-5 py-3 text-sm font-semibold text-[#1A1A1A] hover:text-white shadow-[0_12px_30px_rgba(227,6,19,0.12)] transition hover:-translate-y-0.5 hover:bg-[#E30613]"
             >
               Conoce más por WhatsApp
             </a>

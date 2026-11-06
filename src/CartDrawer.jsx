@@ -46,15 +46,15 @@ export default function CartDrawer({ items, isOpen, onClose, onChangeQuantity, o
             <p className="text-[10px] font-semibold uppercase tracking-[0.22em] text-[#1A1A1A]">TLS REGALOS PERÚ</p>
             <h2 className="mt-1 text-xl font-semibold text-[#1A1A1A]">Tu carrito <span className="text-sm font-normal text-[#5C4A52]">({itemCount})</span></h2>
           </div>
-          <button type="button" onClick={onClose} aria-label="Cerrar carrito" className="flex h-10 w-10 items-center justify-center rounded-full border border-[#E2E2E2] text-2xl text-[#1A1A1A] transition hover:bg-[#FFB6C1]">×</button>
+          <button type="button" onClick={onClose} aria-label="Cerrar carrito" className="flex h-10 w-10 items-center justify-center rounded-full border border-[#E2E2E2] text-2xl text-[#1A1A1A] transition hover:bg-[#F5B4D2]">×</button>
         </header>
 
         {items.length === 0 ? (
           <div className="flex flex-1 flex-col items-center justify-center px-8 text-center">
-            <span className="text-5xl text-[#FFB6C1]">♡</span>
+            <span className="text-5xl text-[#F5B4D2]">♡</span>
             <h3 className="mt-4 text-xl font-semibold text-[#1A1A1A]">Tu carrito está vacío</h3>
             <p className="mt-2 text-sm leading-6 text-[#5C4A52]">Descubre regalos personalizados para tus momentos especiales.</p>
-            <button type="button" onClick={onClose} className="mt-6 rounded-full bg-[#FFB6C1] px-5 py-3 text-xs font-semibold uppercase tracking-[0.15em] text-[#1A1A1A] transition hover:bg-[#FFF0F6]">Explorar catálogo</button>
+            <button type="button" onClick={onClose} className="mt-6 rounded-full bg-[#F5B4D2] px-5 py-3 text-xs font-semibold uppercase tracking-[0.15em] text-[#1A1A1A] transition hover:bg-[#FFF0F6]">Explorar catálogo</button>
           </div>
         ) : (
           <>
